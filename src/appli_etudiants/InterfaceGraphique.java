@@ -26,6 +26,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private ModifRole fenModifRole;
     private InfosDir fenInfoDir;
     private CreationEmp fenCreEmp;
+    private PromRetro fenPromRetro;
 
     /**
      * constructeur : Creates new form InterfaceGraphique
@@ -61,6 +62,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jPanelDirecteur = new javax.swing.JPanel();
         jButtonInfoDir = new javax.swing.JButton();
         jButtonCreEmP = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanelEmploye = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jTextPosEmp = new javax.swing.JTextField();
@@ -147,6 +149,13 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Modifier Rôle");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout jPanelDirecteurLayout = new org.jdesktop.layout.GroupLayout(jPanelDirecteur);
         jPanelDirecteur.setLayout(jPanelDirecteurLayout);
         jPanelDirecteurLayout.setHorizontalGroup(
@@ -156,16 +165,20 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(jPanelDirecteurLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(jButtonInfoDir, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(424, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 63, Short.MAX_VALUE)
+                .add(jButton1)
+                .add(80, 80, 80))
         );
         jPanelDirecteurLayout.setVerticalGroup(
             jPanelDirecteurLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelDirecteurLayout.createSequentialGroup()
                 .add(53, 53, 53)
-                .add(jButtonInfoDir)
+                .add(jPanelDirecteurLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jButtonInfoDir)
+                    .add(jButton1))
                 .add(32, 32, 32)
                 .add(jButtonCreEmP)
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         jButton4.setText("Modifier tel pro ");
@@ -370,9 +383,17 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonInfoDirActionPerformed
 
     private void jButtonCreEmPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreEmPActionPerformed
-   fenCreEmp = new CreationEmp(this, true, gens);
+        fenCreEmp = new CreationEmp(this, true, gens);
         this.fenCreEmp.setVisible(true);
     }//GEN-LAST:event_jButtonCreEmPActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        fenPromRetro = new PromRetro(this, true, gens);
+        this.fenPromRetro.setVisible(true);
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     public void connecte(String nom, String prenom, String role) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -382,10 +403,11 @@ public class InterfaceGraphique extends javax.swing.JFrame {
 
         if (role.equals("directeur")) {
             jPanelDirecteur.setVisible(true);
-//            jPanelEmploye.setVisible(false);
-//            jPanelResponsable.setVisible(false);
+            fileMenu.setText("Directeur");
         } else if (role.equals("responsable")) {
             jPanelResponsable.setVisible(true);
+            fileMenu.setText("Responsable");
+
         } else {
             jPanelEmploye.setVisible(true);
 //            jPanelDirecteur.setVisible(false);
@@ -401,6 +423,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jPanelDirecteur.setVisible(false);
         jPanelResponsable.setVisible(false);
         jPanelEmploye.setVisible(false);
+        fileMenu.setText("Connectez-vous");
     }
 
     public void majConnexion() {
@@ -449,6 +472,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JMenuItem connexionMenuItem;
     private javax.swing.JMenuItem deconnexionMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonCreEmP;

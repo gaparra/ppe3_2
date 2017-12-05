@@ -49,7 +49,6 @@ public class ModifRole extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextPos = new javax.swing.JTextField();
         jTextID = new javax.swing.JTextField();
         jButtonModifPos = new javax.swing.JButton();
         jLabelNom = new javax.swing.JLabel();
@@ -59,11 +58,12 @@ public class ModifRole extends javax.swing.JDialog {
         jLabelNom1 = new javax.swing.JLabel();
         jLabelPrenom1 = new javax.swing.JLabel();
         jLabelRole1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("modif");
-
-        jTextPos.setToolTipText("uyuyb");
 
         jTextID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,55 +97,85 @@ public class ModifRole extends javax.swing.JDialog {
 
         jLabelRole1.setText("Catégorie");
 
+        jLabel1.setText("ID");
+
+        jLabel2.setText("ID");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "cadre", "non cadre", "dirigeant"}));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonModifPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextID)
-                    .addComponent(jTextPos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox1, 0, 136, Short.MAX_VALUE)
+                    .addComponent(jTextID))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonModifPos, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelNom1)
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabelPrenom1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelRole1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabelNom)
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabelPrenom)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelNom))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabelNom1)))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPrenom, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelPrenom1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jLabelCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jLabelCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelRole1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPrenom1)
-                    .addComponent(jLabelNom1)
-                    .addComponent(jLabelRole1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPrenom1)
+                        .addComponent(jLabelRole1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabelNom1)))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelNom)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPrenom)
+                        .addComponent(jLabelCategorie)))
+                .addContainerGap(24, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonModifPos)
-                        .addComponent(jTextPos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelNom)
-                    .addComponent(jLabelPrenom)
-                    .addComponent(jLabelCategorie))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jButtonModifPos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
@@ -153,20 +183,21 @@ public class ModifRole extends javax.swing.JDialog {
 
     private void jButtonModifPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifPosActionPerformed
 
-        String pos = jTextPos.getText();
-        int id = Integer.parseInt(jTextID.getText());
+        Integer id = Integer.parseInt(jTextID.getText());
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requete
             Statement requete = maConnexion.createStatement();
-            ResultSet lignesRetournees = requete.executeQuery(gens.modifPos(id, pos));
+            requete.executeUpdate("update utilisateurs set categorie ='" + jComboBox1.getSelectedItem() + "'where id_utilisateur=" + id);
+            ResultSet lignesRetournees = requete.executeQuery("select nom,prenom,categorie from utilisateurs where id_utilisateur=" + id);
+
             if (lignesRetournees.next()) {
                 String nom = lignesRetournees.getString("nom");
                 String prenom = lignesRetournees.getString("prenom");
                 String newPos = lignesRetournees.getString("categorie");
-
                 jLabelNom.setText(nom);
                 jLabelPrenom.setText(prenom);
+                jLabel2.setText(id.toString());
                 jLabelCategorie.setText(newPos);
             }
         } catch (SQLException ex) {
@@ -184,20 +215,26 @@ public class ModifRole extends javax.swing.JDialog {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requete
             Statement requete = maConnexion.createStatement();
-            ResultSet lignesRetournees = requete.executeQuery("select nom,prenom,categorie from Utilisateurs where id_utilisateur=" + jTextID.getText());
+            ResultSet lignesRetournees = requete.executeQuery("select id_utilisateur,nom,prenom,categorie from Utilisateurs where id_utilisateur=" + jTextID.getText());
             if (lignesRetournees.next()) {
                 String nom = lignesRetournees.getString("nom");
                 String prenom = lignesRetournees.getString("prenom");
                 String pos = lignesRetournees.getString("categorie");
+                Integer id = lignesRetournees.getInt("id_utilisateur");
                 jLabelCategorie.setText(pos);
                 jLabelNom.setText(nom);
                 jLabelPrenom.setText(prenom);
+                jLabel2.setText(id.toString());
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(Responsable.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,6 +281,9 @@ public class ModifRole extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonModifPos;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCategorie;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelNom1;
@@ -251,6 +291,5 @@ public class ModifRole extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelPrenom1;
     private javax.swing.JLabel jLabelRole1;
     private javax.swing.JTextField jTextID;
-    private javax.swing.JTextField jTextPos;
     // End of variables declaration//GEN-END:variables
 }

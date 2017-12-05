@@ -78,8 +78,10 @@ public class InfosDir extends javax.swing.JDialog {
         jLabelPosition = new javax.swing.JLabel();
         jLabelNom = new javax.swing.JLabel();
         jLabelPrenom = new javax.swing.JLabel();
+        jLabelConf = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Informations Personnelles");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Nom");
@@ -163,6 +165,9 @@ public class InfosDir extends javax.swing.JDialog {
             }
         });
 
+        jLabelConf.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabelConf.setForeground(new java.awt.Color(51, 204, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,16 +181,16 @@ public class InfosDir extends javax.swing.JDialog {
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldTelPro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                             .addComponent(jTextFieldCP, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldRue, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldVille, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldTelPerso, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jTextFieldTelPerso, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonTelPerso)
@@ -209,6 +214,10 @@ public class InfosDir extends javax.swing.JDialog {
                                 .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelConf, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,9 +229,9 @@ public class InfosDir extends javax.swing.JDialog {
                         .addComponent(jLabelNom, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
@@ -254,7 +263,9 @@ public class InfosDir extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(jTextFieldTelPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonTelPro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelConf, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -306,6 +317,7 @@ public class InfosDir extends javax.swing.JDialog {
             System.out.println("update adresse set code_postal=" + cp + " , rue = " + rue + " , ville =" + ville + " where id_utilisateur=" + id);
             requete.executeUpdate("update adresse set code_postal=" + cp + " , rue = '" + rue + "' , ville ='" + ville + "' where id_utilisateur=" + id);
 
+            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -369,6 +381,7 @@ public class InfosDir extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelConf;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelPosition;
     private javax.swing.JLabel jLabelPrenom;

@@ -6,6 +6,7 @@
 package appli_etudiants;
 
 import com.mysql.jdbc.Connection;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -64,13 +65,14 @@ public class CreationEmp extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextFieldMail = new javax.swing.JTextField();
-        jTextFieldCat = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldIdentifiant = new javax.swing.JTextField();
         jTextFieldMDP = new javax.swing.JTextField();
         jButtonCreer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabelTitre = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -118,67 +120,81 @@ public class CreationEmp extends javax.swing.JDialog {
             }
         });
 
+        jLabelTitre.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabelTitre.setText("Création d'un employé");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "cadre", "non cadre", "dirigeant"}));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(jTextFieldMail, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldVille, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldRue, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldNom))
-                .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel12))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldMDP, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                    .addComponent(jTextFieldPerso)
-                    .addComponent(jTextFieldPro)
-                    .addComponent(jTextFieldNais)
-                    .addComponent(jTextFieldCP)
-                    .addComponent(jTextFieldCat))
-                .addGap(60, 60, 60))
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jButton1)
-                .addGap(100, 100, 100)
-                .addComponent(jButtonCreer, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextFieldIdentifiant)
+                            .addComponent(jTextFieldMail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldVille, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldRue, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldMDP, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(jTextFieldPerso)
+                            .addComponent(jTextFieldPro)
+                            .addComponent(jTextFieldNais)
+                            .addComponent(jTextFieldCP)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton1)
+                        .addGap(100, 100, 100)
+                        .addComponent(jButtonCreer, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelTitre)
+                .addGap(211, 211, 211))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTitre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldNom))))
-                .addGap(36, 36, 36)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldNais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,16 +215,16 @@ public class CreationEmp extends javax.swing.JDialog {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldMDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCreer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -223,49 +239,57 @@ public class CreationEmp extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldCPActionPerformed
 
     private void jButtonCreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreerActionPerformed
-
-try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requete
-            Statement requete = maConnexion.createStatement();
+        if (jTextFieldNom.getText().equals("") || jTextFieldPrenom.getText().equals("") || jTextFieldVille.getText().equals("")
+                || jTextFieldRue.getText().equals("") || jTextFieldCP.getText().equals("") || jTextFieldIdentifiant.getText().equals("")
+                || jTextFieldMDP.getText().equals("") || jTextFieldMail.getText().equals("") || jTextFieldNais.getText().equals("")
+                || jTextFieldPerso.getText().equals("")) {
+            jLabelTitre.setText("Veuillez renseigner tous les champs");
+            jLabelTitre.setForeground(Color.red);
+        } else {
+            try {
+                Connection maConnexion = ConnexionBDD.getInstance();
+                //requete
+                Statement requete = maConnexion.createStatement();
 //            System.out.println("update utilisateurs set tel_personnel=" + perso + " and tel_professionnel = " + pro + " where id_utilisateur=" + id);
-            System.out.println("INSERT INTO utilisateurs"
-                    + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
-                    + "role, categorie, identifiant, mot_de_passe) "
-                    + "VALUES (NULL, '"+jTextFieldNom.getText()+"', '"+jTextFieldPrenom.getText()
-                    +"', '"+jTextFieldNais.getText()+"', '"+jTextFieldPerso.getText()+"', '"+jTextFieldPro.getText()
-                    +"', '"+jTextFieldMail.getText()+"', NULL, year(now()), 'employe', '"+jTextFieldCat.getText()
-                    +"', '"+jTextFieldIdentifiant.getText()+"', '"+jTextFieldMDP.getText()+"');" );
+                System.out.println("INSERT INTO utilisateurs"
+                        + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
+                        + "role, categorie, identifiant, mot_de_passe) "
+                        + "VALUES (NULL, '" + jTextFieldNom.getText() + "', '" + jTextFieldPrenom.getText()
+                        + "', '" + jTextFieldNais.getText() + "', '" + jTextFieldPerso.getText() + "', '" + jTextFieldPro.getText()
+                        + "', '" + jTextFieldMail.getText() + "', NULL, year(now()), 'employe', '" + jComboBox1.getSelectedItem()
+                        + "', '" + jTextFieldIdentifiant.getText() + "', '" + jTextFieldMDP.getText() + "');");
 
-requete.executeUpdate("INSERT INTO utilisateurs"
-                    + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
-                    + "role, categorie, identifiant, mot_de_passe) "
-                    + "VALUES (NULL, '"+jTextFieldNom.getText()+"', '"+jTextFieldPrenom.getText()
-                    +"', '"+jTextFieldNais.getText()+"', '"+jTextFieldPerso.getText()+"', '"+jTextFieldPro.getText()
-                    +"', '"+jTextFieldMail.getText()+"', NULL, year(now()), 'employe', '"+jTextFieldCat.getText()
-                    +"', '"+jTextFieldIdentifiant.getText()+"', '"+jTextFieldMDP.getText()+"');" );
-    System.out.println("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
-                    + "VALUES (NULL, "+jTextFieldCP.getText()+"', '"+jTextFieldVille.getText()+"', '"+jTextFieldRue.getText()
-                    +"', LAST_INSERT_ID()');");
-            requete.executeUpdate("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
-                    + "VALUES (NULL, "+jTextFieldCP.getText()+", '"+jTextFieldVille.getText()+"', '"+jTextFieldRue.getText()
-                    +"', LAST_INSERT_ID());");
+                requete.executeUpdate("INSERT INTO utilisateurs"
+                        + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
+                        + "role, categorie, identifiant, mot_de_passe) "
+                        + "VALUES (NULL, '" + jTextFieldNom.getText() + "', '" + jTextFieldPrenom.getText()
+                        + "', '" + jTextFieldNais.getText() + "', '" + jTextFieldPerso.getText() + "', '" + jTextFieldPro.getText()
+                        + "', '" + jTextFieldMail.getText() + "', NULL, year(now()), 'employe', '" + jComboBox1.getSelectedItem()
+                        + "', '" + jTextFieldIdentifiant.getText() + "', MD5('" + jTextFieldMDP.getText() + "'));");
+                System.out.println("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
+                        + "VALUES (NULL, " + jTextFieldCP.getText() + "', '" + jTextFieldVille.getText() + "', '" + jTextFieldRue.getText()
+                        + "', LAST_INSERT_ID()');");
+                requete.executeUpdate("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
+                        + "VALUES (NULL, " + jTextFieldCP.getText() + ", '" + jTextFieldVille.getText() + "', '" + jTextFieldRue.getText()
+                        + "', LAST_INSERT_ID());");
+                jLabelTitre.setText("Création réussi");
+                jLabelTitre.setForeground(Color.green);
 
-        } catch (SQLException ex) {
-            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
-//year(now()) -> année d'embauche
-
-
     }//GEN-LAST:event_jButtonCreerActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        System.out.println("2222222");
-
+        System.out.println("22222222");
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +336,7 @@ requete.executeUpdate("INSERT INTO utilisateurs"
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCreer;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -324,8 +349,8 @@ requete.executeUpdate("INSERT INTO utilisateurs"
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelTitre;
     private javax.swing.JTextField jTextFieldCP;
-    private javax.swing.JTextField jTextFieldCat;
     private javax.swing.JTextField jTextFieldIdentifiant;
     private javax.swing.JTextField jTextFieldMDP;
     private javax.swing.JTextField jTextFieldMail;
