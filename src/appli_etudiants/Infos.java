@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author g.parra
  */
-public class InfosDir extends javax.swing.JDialog {
+public class Infos extends javax.swing.JDialog {
 
     private InterfaceGraphique fenetre;
     private Personne gens;
@@ -24,7 +24,7 @@ public class InfosDir extends javax.swing.JDialog {
     /**
      * Creates new form InfosDir
      */
-    public InfosDir(java.awt.Frame parent, boolean modal, Personne gens) {
+    public Infos(java.awt.Frame parent, boolean modal, Personne gens) {
         super(parent, modal);
         initComponents();
         //positionnement au milieu de la fenetre parente
@@ -313,7 +313,7 @@ public class InfosDir extends javax.swing.JDialog {
             //requete
             Statement requete = maConnexion.createStatement();
             System.out.println("update utilisateurs set tel_personnel=" + perso + " and tel_professionnel = " + pro + " where id_utilisateur=" + id);
-            requete.executeUpdate("update utilisateurs set tel_personnel=" + perso + " , tel_professionnel = " + pro + " where id_utilisateur=" + id);
+            requete.executeUpdate("update utilisateurs set tel_personnel='" + perso + "' , tel_professionnel = '" + pro + "' where id_utilisateur=" + id);
             System.out.println("update adresse set code_postal=" + cp + " , rue = " + rue + " , ville =" + ville + " where id_utilisateur=" + id);
             requete.executeUpdate("update adresse set code_postal=" + cp + " , rue = '" + rue + "' , ville ='" + ville + "' where id_utilisateur=" + id);
 
@@ -341,20 +341,21 @@ public class InfosDir extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InfosDir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Infos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InfosDir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Infos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InfosDir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Infos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InfosDir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Infos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                InfosDir dialog = new InfosDir(new javax.swing.JFrame(), true, null);
+                Infos dialog = new Infos(new javax.swing.JFrame(), true, null);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

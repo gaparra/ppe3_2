@@ -23,7 +23,7 @@ public class AppliEtudiants {
       InterfaceGraphique fenetre=new InterfaceGraphique();
               fenetre.setVisible(true);
   
-        System.out.println("merde==m");
+//        System.out.println("merde==m");
         
         
     }
