@@ -33,6 +33,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private Infos fenInfo;
     private CreationEmp fenCreEmp;
     private PromRetro fenPromRetro;
+    private Stages fenStage;
 
     /**
      * constructeur : Creates new form InterfaceGraphique
@@ -64,6 +65,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonModifRole = new javax.swing.JButton();
         jButtonCreEmP = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
+        jButtonStage = new javax.swing.JButton();
         nomMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         connexionMenuItem = new javax.swing.JMenuItem();
@@ -100,6 +102,13 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonInfoActionPerformed(evt);
+            }
+        });
+
+        jButtonStage.setText("Gérer les Stages");
+        jButtonStage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStageActionPerformed(evt);
             }
         });
 
@@ -160,19 +169,22 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(jButtonInfo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))
+                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonStage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(25, 25, 25)
                 .add(jButtonInfo)
                 .add(18, 18, 18)
                 .add(jButtonModifRole)
                 .add(18, 18, 18)
+                .add(jButtonStage)
+                .add(18, 18, 18)
                 .add(jButtonCreEmP)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,6 +217,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonCreEmP.setVisible(false);
         jButtonInfo.setVisible(false);
         jButtonModifRole.setVisible(false);
+        jButtonStage.setVisible(false);
 
         this.fenConnexion = new Connexion(this, true);
         this.fenConnexion.setVisible(true);
@@ -260,6 +273,13 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         fenCreEmp = new CreationEmp(this, true, gens);
         this.fenCreEmp.setVisible(true);
     }//GEN-LAST:event_jButtonCreEmPActionPerformed
+
+    private void jButtonStageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStageActionPerformed
+
+        fenStage = new Stages(this, true, gens);
+        this.fenStage.setVisible(true);
+
+    }//GEN-LAST:event_jButtonStageActionPerformed
     public void connecte(String nom, String prenom, String role) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -272,6 +292,8 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonInfo.setVisible(true);
             jButtonCreEmP.setVisible(true);
             jButtonModifRole.setVisible(true);
+            jButtonStage.setVisible(true);
+
             setSize(300, 250);
             fileMenu.setText("Directeur");
         } else if (role.equals("responsable")) {
@@ -279,14 +301,18 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonCreEmP.setVisible(false);
             jButtonModifRole.setVisible(true);
             jButtonInfo.setVisible(true);
+            jButtonStage.setVisible(true);
+
             fileMenu.setText("Responsable");
 
         } else {
             jButtonCreEmP.setVisible(false);
             jButtonModifRole.setVisible(false);
             jButtonInfo.setVisible(true);
+            jButtonStage.setVisible(true);
+
 //            jButtonInfo.setSize(250, 50);
-            setSize(300, 120);
+            setSize(300, 220);
 
         }
 
@@ -298,6 +324,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonCreEmP.setVisible(false);
         jButtonModifRole.setVisible(false);
         jButtonInfo.setVisible(false);
+        jButtonStage.setVisible(false);
 
         fileMenu.setText("Connectez-vous");
     }
@@ -351,6 +378,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCreEmP;
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JButton jButtonModifRole;
+    private javax.swing.JButton jButtonStage;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar nomMenuBar;
     private javax.swing.JMenu nomjMenu;
