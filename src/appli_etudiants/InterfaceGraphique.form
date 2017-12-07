@@ -12,7 +12,7 @@
         <Menu class="javax.swing.JMenu" name="fileMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="102"/>
-            <Property name="text" type="java.lang.String" value="Employ&#xe9;"/>
+            <Property name="text" type="java.lang.String" value="Connexion"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="connexionMenuItem">
@@ -103,13 +103,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButtonInfo" max="32767" attributes="0"/>
-                  <Component id="jButtonModifRole" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButtonCreEmP" alignment="0" pref="201" max="32767" attributes="0"/>
-                  <Component id="jButtonStage" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButtonModifRole" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jButtonHobbies" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jButtonCreEmP" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jButtonInfo" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jButtonLangues" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jButtonFormations" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="jButtonStage" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,12 +122,18 @@
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jButtonInfo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButtonModifRole" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButtonStage" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonLangues" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonFormations" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonHobbies" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <Component id="jButtonModifRole" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButtonCreEmP" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,6 +169,30 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonStageActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonLangues">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="G&#xe9;rer les Langues"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLanguesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonFormations">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="G&#xe9;rer les Formations"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFormationsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonHobbies">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="G&#xe9;rer les Hobbies"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHobbiesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

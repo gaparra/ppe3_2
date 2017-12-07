@@ -34,6 +34,9 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private CreationEmp fenCreEmp;
     private PromRetro fenPromRetro;
     private Stages fenStage;
+    private Langues fenLangues;
+    private Formations fenFormations;
+    private Hobbies fenHobbie;
 
     /**
      * constructeur : Creates new form InterfaceGraphique
@@ -66,6 +69,9 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonCreEmP = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
         jButtonStage = new javax.swing.JButton();
+        jButtonLangues = new javax.swing.JButton();
+        jButtonFormations = new javax.swing.JButton();
+        jButtonHobbies = new javax.swing.JButton();
         nomMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         connexionMenuItem = new javax.swing.JMenuItem();
@@ -112,8 +118,29 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
 
+        jButtonLangues.setText("Gérer les Langues");
+        jButtonLangues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLanguesActionPerformed(evt);
+            }
+        });
+
+        jButtonFormations.setText("Gérer les Formations");
+        jButtonFormations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFormationsActionPerformed(evt);
+            }
+        });
+
+        jButtonHobbies.setText("Gérer les Hobbies");
+        jButtonHobbies.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHobbiesActionPerformed(evt);
+            }
+        });
+
         fileMenu.setMnemonic('f');
-        fileMenu.setText("Employé");
+        fileMenu.setText("Connexion");
 
         connexionMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         connexionMenuItem.setMnemonic('o');
@@ -166,12 +193,15 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(33, 33, 33)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jButtonInfo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonStage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .add(33, 33, 33))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonHobbies, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonLangues, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonFormations, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonStage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -179,12 +209,18 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(25, 25, 25)
                 .add(jButtonInfo)
                 .add(18, 18, 18)
-                .add(jButtonModifRole)
-                .add(18, 18, 18)
                 .add(jButtonStage)
                 .add(18, 18, 18)
+                .add(jButtonLangues)
+                .add(18, 18, 18)
+                .add(jButtonFormations)
+                .add(18, 18, 18)
+                .add(jButtonHobbies)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 31, Short.MAX_VALUE)
+                .add(jButtonModifRole)
+                .add(18, 18, 18)
                 .add(jButtonCreEmP)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .add(20, 20, 20))
         );
 
         pack();
@@ -218,6 +254,9 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonInfo.setVisible(false);
         jButtonModifRole.setVisible(false);
         jButtonStage.setVisible(false);
+        jButtonLangues.setVisible(false);
+        jButtonFormations.setVisible(false);
+        jButtonHobbies.setVisible(false);
 
         this.fenConnexion = new Connexion(this, true);
         this.fenConnexion.setVisible(true);
@@ -280,6 +319,24 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         this.fenStage.setVisible(true);
 
     }//GEN-LAST:event_jButtonStageActionPerformed
+
+    private void jButtonLanguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLanguesActionPerformed
+
+        fenLangues = new Langues(this, true, gens);
+        this.fenLangues.setVisible(true);
+
+    }//GEN-LAST:event_jButtonLanguesActionPerformed
+
+    private void jButtonFormationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFormationsActionPerformed
+        fenFormations = new Formations(this, true, gens);
+        this.fenFormations.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonFormationsActionPerformed
+
+    private void jButtonHobbiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHobbiesActionPerformed
+        fenHobbie = new Hobbies(this, true, gens);
+        this.fenHobbie.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHobbiesActionPerformed
     public void connecte(String nom, String prenom, String role) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -293,6 +350,9 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonCreEmP.setVisible(true);
             jButtonModifRole.setVisible(true);
             jButtonStage.setVisible(true);
+            jButtonLangues.setVisible(true);
+            jButtonFormations.setVisible(true);
+            jButtonHobbies.setVisible(true);
 
             setSize(300, 250);
             fileMenu.setText("Directeur");
@@ -302,17 +362,22 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonModifRole.setVisible(true);
             jButtonInfo.setVisible(true);
             jButtonStage.setVisible(true);
-
+            jButtonLangues.setVisible(true);
+            jButtonFormations.setVisible(true);
+            jButtonHobbies.setVisible(true);
             fileMenu.setText("Responsable");
 
         } else {
+            fileMenu.setText("Employé");
             jButtonCreEmP.setVisible(false);
             jButtonModifRole.setVisible(false);
             jButtonInfo.setVisible(true);
             jButtonStage.setVisible(true);
-
+            jButtonLangues.setVisible(true);
+            jButtonFormations.setVisible(true);
+            jButtonHobbies.setVisible(true);
 //            jButtonInfo.setSize(250, 50);
-            setSize(300, 220);
+            setSize(300, 400);
 
         }
 
@@ -325,6 +390,9 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonModifRole.setVisible(false);
         jButtonInfo.setVisible(false);
         jButtonStage.setVisible(false);
+        jButtonLangues.setVisible(false);
+        jButtonFormations.setVisible(false);
+        jButtonHobbies.setVisible(false);
 
         fileMenu.setText("Connectez-vous");
     }
@@ -376,7 +444,10 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JMenuItem deconnexionMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton jButtonCreEmP;
+    private javax.swing.JButton jButtonFormations;
+    private javax.swing.JButton jButtonHobbies;
     private javax.swing.JButton jButtonInfo;
+    private javax.swing.JButton jButtonLangues;
     private javax.swing.JButton jButtonModifRole;
     private javax.swing.JButton jButtonStage;
     private javax.swing.JMenuItem jMenuItem1;
