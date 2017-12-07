@@ -37,6 +37,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private Langues fenLangues;
     private Formations fenFormations;
     private Hobbies fenHobbie;
+    private Permis fenPermis;
 
     /**
      * constructeur : Creates new form InterfaceGraphique
@@ -72,6 +73,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonLangues = new javax.swing.JButton();
         jButtonFormations = new javax.swing.JButton();
         jButtonHobbies = new javax.swing.JButton();
+        jButtonPermis = new javax.swing.JButton();
         nomMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         connexionMenuItem = new javax.swing.JMenuItem();
@@ -139,6 +141,13 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
 
+        jButtonPermis.setText("Gérer les Permis");
+        jButtonPermis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPermisActionPerformed(evt);
+            }
+        });
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("Connexion");
 
@@ -193,15 +202,16 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(33, 33, 33)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonHobbies, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonLangues, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonFormations, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jButtonStage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonHobbies, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonInfo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonLangues, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonFormations, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonStage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .add(jButtonPermis, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -216,11 +226,13 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(jButtonFormations)
                 .add(18, 18, 18)
                 .add(jButtonHobbies)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 31, Short.MAX_VALUE)
+                .add(18, 18, 18)
+                .add(jButtonPermis)
+                .add(18, 18, 18)
                 .add(jButtonModifRole)
                 .add(18, 18, 18)
                 .add(jButtonCreEmP)
-                .add(20, 20, 20))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -257,6 +269,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonLangues.setVisible(false);
         jButtonFormations.setVisible(false);
         jButtonHobbies.setVisible(false);
+        jButtonPermis.setVisible(false);
 
         this.fenConnexion = new Connexion(this, true);
         this.fenConnexion.setVisible(true);
@@ -337,6 +350,12 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         fenHobbie = new Hobbies(this, true, gens);
         this.fenHobbie.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButtonHobbiesActionPerformed
+
+    private void jButtonPermisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPermisActionPerformed
+        fenPermis = new Permis(this, true, gens);
+        this.fenPermis.setVisible(true);
+
+    }//GEN-LAST:event_jButtonPermisActionPerformed
     public void connecte(String nom, String prenom, String role) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -353,6 +372,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonLangues.setVisible(true);
             jButtonFormations.setVisible(true);
             jButtonHobbies.setVisible(true);
+            jButtonPermis.setVisible(true);
 
             setSize(300, 250);
             fileMenu.setText("Directeur");
@@ -365,6 +385,8 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonLangues.setVisible(true);
             jButtonFormations.setVisible(true);
             jButtonHobbies.setVisible(true);
+            jButtonPermis.setVisible(true);
+
             fileMenu.setText("Responsable");
 
         } else {
@@ -376,6 +398,8 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonLangues.setVisible(true);
             jButtonFormations.setVisible(true);
             jButtonHobbies.setVisible(true);
+            jButtonPermis.setVisible(true);
+
 //            jButtonInfo.setSize(250, 50);
             setSize(300, 400);
 
@@ -393,6 +417,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonLangues.setVisible(false);
         jButtonFormations.setVisible(false);
         jButtonHobbies.setVisible(false);
+        jButtonPermis.setVisible(false);
 
         fileMenu.setText("Connectez-vous");
     }
@@ -449,6 +474,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JButton jButtonLangues;
     private javax.swing.JButton jButtonModifRole;
+    private javax.swing.JButton jButtonPermis;
     private javax.swing.JButton jButtonStage;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar nomMenuBar;
