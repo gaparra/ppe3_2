@@ -143,12 +143,12 @@ public class Permis extends javax.swing.JDialog {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            ResultSet resultat = requete.executeQuery("select * from hobbies where id_utilisateur=" + id);
+            ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id);
             if (resultat.next()) {
-                Integer idS = resultat.getInt("id_hobbie");
-                System.out.println("update hobbies set nom='" + jTextFieldNom.getText() + "' , description=\""
+                Integer idS = resultat.getInt("id_permis");
+                System.out.println("update permis set nom='" + jTextFieldNom.getText() + "' , description=\""
                         + jTextAreaDesc.getText() + "\"where id_hobbie=" + idS);
-                requete.executeUpdate("update hobbies set nom='" + jTextFieldNom.getText() + "' , description=\""
+                requete.executeUpdate("update permis set nom='" + jTextFieldNom.getText() + "' , description=\""
                         + jTextAreaDesc.getText() + "\"where id_hobbie=" + idS);
             }
             jLabel2.setVisible(true);

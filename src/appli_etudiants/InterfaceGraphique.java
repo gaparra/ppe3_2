@@ -86,6 +86,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -360,7 +361,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         //maj de l'etat de la connexion
         this.connecte = true;
         //ajout du nom dans la fenetre
-        this.nomjMenu.setText("Connecté en tant que : " + prenom + " " + nom);
+        this.nomjMenu.setText("Boniour " + prenom + " " + nom);
         this.nomjMenu.setEnabled(false);
 
         if (role.equals("directeur")) {
@@ -374,7 +375,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonHobbies.setVisible(true);
             jButtonPermis.setVisible(true);
 
-            setSize(300, 250);
+            setSize(300, 430);
             fileMenu.setText("Directeur");
         } else if (role.equals("responsable")) {
             jButtonModifRole.setText("Modifier Position");
@@ -386,7 +387,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonFormations.setVisible(true);
             jButtonHobbies.setVisible(true);
             jButtonPermis.setVisible(true);
-
+            setSize(300, 380);
             fileMenu.setText("Responsable");
 
         } else {
@@ -400,8 +401,8 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonHobbies.setVisible(true);
             jButtonPermis.setVisible(true);
 
-//            jButtonInfo.setSize(250, 50);
-            setSize(300, 400);
+//            jButtonInfo.setSize(350, 50);
+            setSize(300, 350);
 
         }
 
