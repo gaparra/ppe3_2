@@ -57,6 +57,7 @@ public class Permis extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jButtonMod = new javax.swing.JButton();
         jButtonValidInsert = new javax.swing.JButton();
+        jButtonSuppr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -122,33 +123,45 @@ public class Permis extends javax.swing.JDialog {
             }
         });
 
+        jButtonSuppr.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonSuppr.setForeground(new java.awt.Color(204, 0, 51));
+        jButtonSuppr.setText("Supprimer");
+        jButtonSuppr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSupprActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButtonValidModif, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(51, 51, 51)
+                                    .addComponent(jLabel2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButtonMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField1)
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButtonMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField1)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonValidModif, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(30, 30, 30))))
         );
         layout.setVerticalGroup(
@@ -168,7 +181,9 @@ public class Permis extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonValidModif)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonValidModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValidInsert)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -198,32 +213,6 @@ public class Permis extends javax.swing.JDialog {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
-
-    private void jButtonValidModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidModifActionPerformed
-        Integer id = gens.getId();
-        String item = jComboBox1.getSelectedItem().toString();
-        try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requetes
-            Statement requete = maConnexion.createStatement();
-            System.out.println("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
-            ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
-            if (resultat.next()) {
-                Integer idS = resultat.getInt("id_permis");
-
-                System.out.println("update permis set nom='" + item + "' , description=\""
-                        + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
-                requete.executeUpdate("update permis set nom='" + item + "' , description=\""
-                        + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
-            }
-            jLabel2.setVisible(true);
-            jComboBox1.setVisible(true);
-            jTextField1.setVisible(false);
-            //            jLabelConf.setText("Modifications réussis");
-        } catch (SQLException ex) {
-            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         Integer id = gens.getId();
@@ -287,6 +276,54 @@ public class Permis extends javax.swing.JDialog {
         jTextAreaDesc.setEditable(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonValidInsertActionPerformed
 
+    private void jButtonValidModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidModifActionPerformed
+        Integer id = gens.getId();
+        String item = jComboBox1.getSelectedItem().toString();
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            System.out.println("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
+            ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
+            if (resultat.next()) {
+                Integer idS = resultat.getInt("id_permis");
+
+                System.out.println("update permis set nom='" + item + "' , description=\""
+                    + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
+                requete.executeUpdate("update permis set nom='" + item + "' , description=\""
+                    + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
+            }
+            jLabel2.setVisible(true);
+            jComboBox1.setVisible(true);
+            jTextField1.setVisible(false);
+            //            jLabelConf.setText("Modifications réussis");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonValidModifActionPerformed
+
+    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
+        String nom = jComboBox1.getSelectedItem().toString();
+        String desc = jTextAreaDesc.getText();
+
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            System.out.println("DELETE FROM permis WHERE permis.nom ='" + nom + "'" + " and permis.description = '" + desc + "'");
+            requete.executeUpdate("DELETE FROM permis WHERE permis.nom ='" + nom + "'" + " and permis.description = '" + desc + "'");
+
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
+            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
+            int index = jComboBox1.getSelectedIndex();
+            combox.removeElementAt(index);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonSupprActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,6 +369,7 @@ public class Permis extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonMod;
+    private javax.swing.JButton jButtonSuppr;
     private javax.swing.JButton jButtonValidInsert;
     private javax.swing.JButton jButtonValidModif;
     private javax.swing.JComboBox<String> jComboBox1;

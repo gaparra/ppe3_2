@@ -57,6 +57,7 @@ public class Hobbies extends javax.swing.JDialog {
         jButtonValidInsert = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDesc = new javax.swing.JTextArea();
+        jButtonSuppr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -122,6 +123,15 @@ public class Hobbies extends javax.swing.JDialog {
         jTextAreaDesc.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDesc);
 
+        jButtonSuppr.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonSuppr.setForeground(new java.awt.Color(204, 0, 51));
+        jButtonSuppr.setText("Supprimer");
+        jButtonSuppr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSupprActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,7 +142,10 @@ public class Hobbies extends javax.swing.JDialog {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonValidModif, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonSuppr, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonValidModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(51, 51, 51)
@@ -151,7 +164,7 @@ public class Hobbies extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonMod)
@@ -165,10 +178,12 @@ public class Hobbies extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonValidModif)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonValidModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonValidInsert)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -186,7 +201,7 @@ public class Hobbies extends javax.swing.JDialog {
 //            System.out.println("update utilisateurs set tel_personnel=" + perso + " and tel_professionnel = " + pro + " where id_utilisateur=" + id);
 //            System.out.println("update adresse set code_postal=" + cp + " , rue = " + rue + " , ville =" + ville + " where id_utilisateur=" + id);
             ResultSet resultat = requete.executeQuery("select * from hobbies where id_utilisateur=" + id);
-           while (resultat.next()) {
+            while (resultat.next()) {
                 String nom = resultat.getString("nom");
                 jComboBox1.addItem(nom);
             }
@@ -251,6 +266,7 @@ public class Hobbies extends javax.swing.JDialog {
 
         jButtonValidModif.setVisible(false);
         jComboBox1.setVisible(false);
+        jButtonSuppr.setVisible(false);
         jTextField1.setVisible(true);
         jTextAreaDesc.setEditable(true);
         jButtonValidInsert.setVisible(true);
@@ -283,6 +299,30 @@ public class Hobbies extends javax.swing.JDialog {
         }
         jTextAreaDesc.setEditable(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonValidInsertActionPerformed
+
+    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
+        String nom = jComboBox1.getSelectedItem().toString();
+        String desc = jTextAreaDesc.getText();
+
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            System.out.println("DELETE FROM hobbies WHERE hobbies.nom ='" + nom + "'" + " and hobbies.description = '" + desc + "'");
+            requete.executeUpdate("DELETE FROM hobbies WHERE hobbies.nom ='" + nom + "'" + " and hobbies.description = '" + desc + "'");
+
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
+            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
+            int index = jComboBox1.getSelectedIndex();
+            combox.removeElementAt(index);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jButtonSupprActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,6 +369,7 @@ public class Hobbies extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonMod;
+    private javax.swing.JButton jButtonSuppr;
     private javax.swing.JButton jButtonValidInsert;
     private javax.swing.JButton jButtonValidModif;
     private javax.swing.JComboBox<String> jComboBox1;

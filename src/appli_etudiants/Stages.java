@@ -55,6 +55,7 @@ public class Stages extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButtonValidInsert = new javax.swing.JButton();
+        jButtonSuppr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stage");
@@ -115,6 +116,15 @@ public class Stages extends javax.swing.JDialog {
             }
         });
 
+        jButtonSuppr.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonSuppr.setForeground(new java.awt.Color(204, 0, 51));
+        jButtonSuppr.setText("Supprimer");
+        jButtonSuppr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSupprActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,7 +147,10 @@ public class Stages extends javax.swing.JDialog {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(47, 47, 47)
                             .addComponent(jLabel2))
-                        .addComponent(jButtonValidModif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButtonValidModif, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -157,7 +170,9 @@ public class Stages extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonValidModif)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonValidModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValidInsert)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -272,6 +287,28 @@ public class Stages extends javax.swing.JDialog {
         jTextAreaDesc.setEditable(false);
     }//GEN-LAST:event_jButtonValidInsertActionPerformed
 
+    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
+        String nom = jComboBox1.getSelectedItem().toString();
+        String desc = jTextAreaDesc.getText();
+
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            System.out.println("DELETE FROM stages WHERE stages.nom ='" + nom + "'" + " and stages.description = '" + desc + "'");
+            requete.executeUpdate("DELETE FROM stages WHERE stages.nom ='" + nom + "'" + " and stages.description = '" + desc + "'");
+
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
+            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
+            int index = jComboBox1.getSelectedIndex();
+            combox.removeElementAt(index);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonSupprActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -320,6 +357,7 @@ public class Stages extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonMod;
+    private javax.swing.JButton jButtonSuppr;
     private javax.swing.JButton jButtonValidInsert;
     private javax.swing.JButton jButtonValidModif;
     private javax.swing.JComboBox<String> jComboBox1;
