@@ -257,6 +257,8 @@ public class Stages extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jButtonValidModif.setVisible(false);
         jComboBox1.setVisible(false);
+                jButtonSuppr.setVisible(false);
+
         jTextField1.setVisible(true);
         jTextAreaDesc.setEditable(true);
         jButtonValidInsert.setVisible(true);

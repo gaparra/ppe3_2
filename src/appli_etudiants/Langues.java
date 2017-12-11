@@ -286,6 +286,7 @@ public class Langues extends javax.swing.JDialog {
 
         jButtonValidModif.setVisible(false);
         jComboBox1.setVisible(false);
+        jButtonSuppr.setVisible(false);
         jTextField1.setVisible(true);
         jTextAreaDesc.setEditable(true);
         jButtonValidInsert.setVisible(true);
@@ -304,8 +305,8 @@ String nom = jComboBox1.getSelectedItem().toString();
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            System.out.println("DELETE FROM langues WHERE langues.nom ='" + nom + "'" + " and langues.description = '" + desc + "'");
-            requete.executeUpdate("DELETE FROM langues WHERE langues.nom ='" + nom + "'" + " and langues.description = '" + desc + "'");
+            System.out.println("DELETE FROM langues WHERE langues.langue ='" + nom + "'" + " and langues.niveau = '" + desc + "'");
+            requete.executeUpdate("DELETE FROM langues WHERE langues.langue ='" + nom + "'" + " and langues.niveau = '" + desc + "'");
 
             jLabel2.setVisible(true);
             jLabel2.setText("Suppression réussi");
