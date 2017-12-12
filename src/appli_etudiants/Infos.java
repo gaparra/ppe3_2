@@ -87,6 +87,7 @@ public class Infos extends javax.swing.JDialog {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jLabelSalaire = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Informations Personnelles");
@@ -193,6 +194,13 @@ public class Infos extends javax.swing.JDialog {
 
         jLabel10.setText("Salaire");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -234,8 +242,11 @@ public class Infos extends javax.swing.JDialog {
                                     .addComponent(jButtonRue)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabelSalaire, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(88, 88, 88)
+                                        .addComponent(jButton1)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -280,11 +291,12 @@ public class Infos extends javax.swing.JDialog {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabelPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(1, 1, 1))))))
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,6 +368,7 @@ public class Infos extends javax.swing.JDialog {
         String ville = jTextFieldVille.getText();
         String perso = jTextFieldTelPerso.getText();
         String pro = jTextFieldTelPro.getText();
+        String item = jComboBox1.getSelectedItem().toString();
 
         Integer id = gens.getId();
         try {
@@ -365,12 +378,17 @@ public class Infos extends javax.swing.JDialog {
             System.out.println("update utilisateurs set tel_personnel=" + perso + " and tel_professionnel = " + pro + " where id_utilisateur=" + id);
             requete.executeUpdate("update utilisateurs set tel_personnel='" + perso + "' , tel_professionnel = '" + pro + "' where id_utilisateur=" + id);
             System.out.println("update adresse set code_postal=" + cp + " , rue = " + rue + " , ville =" + ville + " where id_utilisateur=" + id);
-            requete.executeUpdate("update adresse set code_postal=" + cp + " , rue = '" + rue + "' , ville ='" + ville + "' where id_utilisateur=" + id);
+            requete.executeUpdate("update adresse set code_postal=" + cp + " , rue = \"" + rue + "\" , ville =\"" + ville + "\" where numero_adresse=" + item + " and id_utilisateur =" + id);
 
             jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
+        jTextFieldCP.setEditable(false);
+        jTextFieldTelPro.setEditable(false);
+        jTextFieldTelPerso.setEditable(false);
+        jTextFieldVille.setEditable(false);
+        jTextFieldRue.setEditable(false);
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -383,7 +401,8 @@ public class Infos extends javax.swing.JDialog {
             ResultSet resultat = requete.executeQuery("select * from adresse where id_utilisateur =" + gens.getId());
             Integer i = 1;
             while (resultat.next()) {
-                jComboBox1.addItem("" + i + "");
+                Integer id = resultat.getInt("numero_adresse");
+                jComboBox1.addItem(id + "");
                 i += 1;
             }
 
@@ -392,7 +411,7 @@ public class Infos extends javax.swing.JDialog {
                 Double salaire = resultat.getDouble("salaire");
                 Integer date = resultat.getInt("date_embauche");
                 Calendar dateAjd = new GregorianCalendar(Locale.FRANCE);
-                Integer ancien = dateAjd.get(Calendar.YEAR)-date;
+                Integer ancien = dateAjd.get(Calendar.YEAR) - date;
                 Double total = 0d;
                 while (ancien > 1) {
                     total = salaire * 1.03;
@@ -409,23 +428,31 @@ public class Infos extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowOpened
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
+        Integer id = gens.getId();
+        String item = jComboBox1.getSelectedItem().toString();
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requete
             Statement requete = maConnexion.createStatement();
-            ResultSet resultat = requete.executeQuery("select * from adresse where id_utilisateur =" + gens.getId());
+            ResultSet resultat = requete.executeQuery("select * from adresse where numero_adresse =" + item + " and id_utilisateur = " + id);
             Integer i = 1;
-            while (resultat.next()) {
-                jComboBox1.addItem("" + i + "");
-                i += 1;
+
+            if (resultat.next()) {
+                String ville = resultat.getString("ville");
+                String rue = resultat.getString("rue");
+                Integer cp = resultat.getInt("code_postal");
+                jTextFieldCP.setText(cp.toString());
+                jTextFieldRue.setText(rue);
+                jTextFieldVille.setText(ville);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,6 +498,7 @@ public class Infos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonCP;
     private javax.swing.JButton jButtonRue;
