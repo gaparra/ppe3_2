@@ -217,6 +217,7 @@ public class Langues extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
+        jTextAreaDesc.setEditable(false);
     }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -252,6 +253,7 @@ public class Langues extends javax.swing.JDialog {
                     + "(NULL, '" + nouvelleLangue + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
 
             jLabel2.setVisible(true);
+            jLabel2.setText("Création réussi");
             jComboBox1.setVisible(true);
             jTextField1.setVisible(false);
 //            jLabelConf.setText("Modifications réussis");
@@ -298,7 +300,7 @@ public class Langues extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
-String nom = jComboBox1.getSelectedItem().toString();
+        String nom = jComboBox1.getSelectedItem().toString();
         String desc = jTextAreaDesc.getText();
 
         try {
@@ -308,12 +310,11 @@ String nom = jComboBox1.getSelectedItem().toString();
             System.out.println("DELETE FROM langues WHERE langues.langue ='" + nom + "'" + " and langues.niveau = '" + desc + "'");
             requete.executeUpdate("DELETE FROM langues WHERE langues.langue ='" + nom + "'" + " and langues.niveau = '" + desc + "'");
 
-            jLabel2.setVisible(true);
-            jLabel2.setText("Suppression réussi");
             DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
             int index = jComboBox1.getSelectedIndex();
             combox.removeElementAt(index);
-
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:

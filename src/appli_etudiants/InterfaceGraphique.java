@@ -38,6 +38,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private Formations fenFormations;
     private Hobbies fenHobbie;
     private Permis fenPermis;
+    private ModifMDP fenModifMDP;
 
     /**
      * constructeur : Creates new form InterfaceGraphique
@@ -79,6 +80,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         connexionMenuItem = new javax.swing.JMenuItem();
         deconnexionMenuItem = new javax.swing.JMenuItem();
         SortieMenuItem = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         aideMenu = new javax.swing.JMenu();
         aproposMenuItem = new javax.swing.JMenuItem();
         nomjMenu = new javax.swing.JMenu();
@@ -181,6 +183,14 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
         fileMenu.add(SortieMenuItem);
+
+        jMenuItem2.setText("Changer mot de passe");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu.add(jMenuItem2);
 
         nomMenuBar.add(fileMenu);
 
@@ -357,6 +367,12 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         this.fenPermis.setVisible(true);
 
     }//GEN-LAST:event_jButtonPermisActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        fenModifMDP = new ModifMDP(this, true, gens);
+        this.fenModifMDP.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
     public void connecte(String nom, String prenom, String role) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -478,6 +494,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPermis;
     private javax.swing.JButton jButtonStage;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar nomMenuBar;
     private javax.swing.JMenu nomjMenu;
     // End of variables declaration//GEN-END:variables

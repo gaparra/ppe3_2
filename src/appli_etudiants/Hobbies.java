@@ -234,7 +234,8 @@ public class Hobbies extends javax.swing.JDialog {
             //            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }        jTextAreaDesc.setEditable(false);
+
     }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -312,12 +313,11 @@ public class Hobbies extends javax.swing.JDialog {
             System.out.println("DELETE FROM hobbies WHERE hobbies.nom ='" + nom + "'" + " and hobbies.description = '" + desc + "'");
             requete.executeUpdate("DELETE FROM hobbies WHERE hobbies.nom ='" + nom + "'" + " and hobbies.description = '" + desc + "'");
 
-            jLabel2.setVisible(true);
-            jLabel2.setText("Suppression réussi");
             DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
             int index = jComboBox1.getSelectedIndex();
             combox.removeElementAt(index);
-
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }

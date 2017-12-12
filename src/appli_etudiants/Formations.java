@@ -295,7 +295,8 @@ public class Formations extends javax.swing.JDialog {
             //            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }        jTextAreaDesc.setEditable(false);
+
     }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
@@ -309,12 +310,12 @@ public class Formations extends javax.swing.JDialog {
             System.out.println("DELETE FROM formations WHERE formations.nom ='" + nom + "'" + " and formations.description = '" + desc + "'");
             requete.executeUpdate("DELETE FROM formations WHERE formations.nom ='" + nom + "'" + " and formations.description = '" + desc + "'");
 
-            jLabel2.setVisible(true);
-            jLabel2.setText("Suppression réussi");
+            
             DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
             int index = jComboBox1.getSelectedIndex();
             combox.removeElementAt(index);
-
+jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
