@@ -262,16 +262,16 @@ public class CreationEmp extends javax.swing.JDialog {
                 requete.executeUpdate("INSERT INTO utilisateurs"
                         + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
                         + "role, categorie, identifiant, mot_de_passe) "
-                        + "VALUES (NULL, '" + jTextFieldNom.getText() + "', '" + jTextFieldPrenom.getText()
-                        + "', '" + jTextFieldNais.getText() + "', '" + jTextFieldPerso.getText() + "', '" + jTextFieldPro.getText()
-                        + "', '" + jTextFieldMail.getText() + "', NULL, year(now()), 'employe', '" + jComboBox1.getSelectedItem()
-                        + "', '" + jTextFieldIdentifiant.getText() + "', MD5('" + jTextFieldMDP.getText() + "'));");
+                        + "VALUES (NULL, \"" + jTextFieldNom.getText() + "\", \"" + jTextFieldPrenom.getText()
+                        + "\", \"" + jTextFieldNais.getText() + "\", \"" + jTextFieldPerso.getText() + "\", \"" + jTextFieldPro.getText()
+                        + "\", \"" + jTextFieldMail.getText() + "\", NULL, year(now()), 'employe', \"" + jComboBox1.getSelectedItem()
+                        + "\", \"" + jTextFieldIdentifiant.getText() + "\", MD5('" + jTextFieldMDP.getText() + "'));");
                 System.out.println("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
                         + "VALUES (NULL, " + jTextFieldCP.getText() + "', '" + jTextFieldVille.getText() + "', '" + jTextFieldRue.getText()
                         + "', LAST_INSERT_ID()');");
-                requete.executeUpdate("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
-                        + "VALUES (NULL, " + jTextFieldCP.getText() + ", '" + jTextFieldVille.getText() + "', '" + jTextFieldRue.getText()
-                        + "', LAST_INSERT_ID());");
+                requete.executeUpdate("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur,numero_adresse) "
+                        + "VALUES (NULL, " + jTextFieldCP.getText() + ", \"" + jTextFieldVille.getText() + "\", \"" + jTextFieldRue.getText()
+                        + "\", LAST_INSERT_ID(),1);");
                 jLabelTitre.setText("Création réussi");
                 jLabelTitre.setForeground(Color.green);
 

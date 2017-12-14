@@ -184,7 +184,7 @@ public class ModifMDP extends javax.swing.JDialog {
                 String nouvMdpConf = jTextFieldConfNew.getText();
                 if (mdp.equals(Outils.md5(jTextFieldActuel.getText()))) {
                     if (nouvMdp.equals(nouvMdpConf)) {
-                        requete.executeUpdate("Update utilisateurs set mot_de_passe = MD5('" + nouvMdp + "')");
+                        requete.executeUpdate("Update utilisateurs set mot_de_passe = MD5('" + nouvMdp + "') where id_utilisateur=" + gens.getId());
                         jLabelReussi.setVisible(true);
                         jLabelActuel.setVisible(false);
                         jLabelNouv.setVisible(false);
