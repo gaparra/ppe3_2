@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,218 +51,231 @@ public class ModifRole extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextID = new javax.swing.JTextField();
-        jButtonModifPos = new javax.swing.JButton();
-        jLabelNom = new javax.swing.JLabel();
-        jLabelPrenom = new javax.swing.JLabel();
-        jLabelCategorie = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabelNom1 = new javax.swing.JLabel();
-        jLabelPrenom1 = new javax.swing.JLabel();
-        jLabelRole1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButtonSearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        jLabelErreur = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListNonCadre = new javax.swing.JList<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButtonProm = new javax.swing.JButton();
+        jButtonRetro = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListCadre = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("modif");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
-        jTextID.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextIDActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
-        jButtonModifPos.setText("Modifier la position");
-        jButtonModifPos.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSearch.setText("Rechercher");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonModifPosActionPerformed(evt);
+                jButtonSearchActionPerformed(evt);
             }
         });
 
-        jLabelNom.setText("Nom");
+        jLabel1.setText("Chercher un nom");
 
-        jLabelPrenom.setText("Prénom");
+        jListNonCadre.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jListNonCadre);
 
-        jLabelCategorie.setText("Catégorie");
+        jLabel4.setText("Non Cadre");
 
-        jButton1.setText("Rechercher Utilisateur");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Cadre");
+
+        jButtonProm.setText("Promouvoir ->");
+        jButtonProm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonPromActionPerformed(evt);
             }
         });
 
-        jLabelNom1.setText("Nom");
-
-        jLabelPrenom1.setText("Prénom");
-
-        jLabelRole1.setText("Catégorie");
-
-        jLabel1.setText("ID");
-
-        jLabel2.setText("ID");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "cadre", "non cadre"}));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRetro.setText("Rétrograder <-");
+        jButtonRetro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jButtonRetroActionPerformed(evt);
             }
         });
 
-        jLabelErreur.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabelErreur.setForeground(new java.awt.Color(204, 0, 0));
-        jLabelErreur.setText("Vous ne pouvez pas modifier votre position");
+        jListCadre.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jListCadre);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 136, Short.MAX_VALUE)
-                            .addComponent(jTextID))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(jButtonModifPos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addComponent(jButtonRetro)
+                            .addComponent(jButtonProm))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelErreur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(40, 40, 40)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelNom))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabelNom1)))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPrenom, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelPrenom1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabelCategorie, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addComponent(jLabelRole1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField1)
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jButtonSearch))))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelPrenom1)
-                        .addComponent(jLabelRole1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabelNom1)))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelNom)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelPrenom)
-                        .addComponent(jLabelCategorie)))
-                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelErreur, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(jButtonSearch))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonModifPos)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonProm)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButtonRetro)))
+                .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonModifPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifPosActionPerformed
-        Integer id = Integer.parseInt(jTextID.getText());
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+ DefaultListModel leModel = (DefaultListModel) jListCadre.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListNonCadre.getModel();
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
-            //requete
+            //requetes
             Statement requete = maConnexion.createStatement();
-            requete.executeUpdate("update utilisateurs set categorie ='" + jComboBox1.getSelectedItem() + "'where id_utilisateur=" + id);
-            ResultSet lignesRetournees = requete.executeQuery("select nom,prenom,categorie from utilisateurs where id_utilisateur=" + id);
-
-            if (lignesRetournees.next()) {
-                String nom = lignesRetournees.getString("nom");
-                String prenom = lignesRetournees.getString("prenom");
-                String newPos = lignesRetournees.getString("categorie");
-                jLabelNom.setText(nom);
-                jLabelPrenom.setText(prenom);
-                jLabel2.setText(id.toString());
-                jLabelCategorie.setText(newPos);
+            ResultSet resultat = requete.executeQuery("select * from utilisateurs where categorie='cadre'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel.addElement(id + " - " + prenom + "  " + nom);
             }
+            resultat = requete.executeQuery("select * from utilisateurs where categorie='non cadre'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel2.addElement(id + " - " + prenom + "  " + nom);
+            }
+//            jLabelConf.setText("Modifications réussis");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        DefaultListModel leModel = (DefaultListModel) jListCadre.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListNonCadre.getModel();
+        leModel.removeAllElements();
+        leModel2.removeAllElements();
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            ResultSet resultat = requete.executeQuery("select * from utilisateurs where categorie='cadre' and nom LIKE '%" + jTextField1.getText() + "%'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel.addElement(id + " - " + prenom + "  " + nom);
+            }
+            resultat = requete.executeQuery("select * from utilisateurs where categorie='non cadre' and nom LIKE '%" + jTextField1.getText() + "%'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel2.addElement(id + " - " + prenom + "  " + nom);
+            }
+            //            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonModifPosActionPerformed
+    }//GEN-LAST:event_jButtonSearchActionPerformed
 
-    private void jTextIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextIDActionPerformed
+    private void jButtonPromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPromActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Integer idRes = gens.getId();
-        jButtonModifPos.setEnabled(true);
-        jLabelErreur.setVisible(false);
-        try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requete
-            Statement requete = maConnexion.createStatement();
-            ResultSet lignesRetournees = requete.executeQuery("select id_utilisateur,nom,prenom,categorie from Utilisateurs where id_utilisateur=" + jTextID.getText());
-            if (lignesRetournees.next()) {
-                String nom = lignesRetournees.getString("nom");
-                String prenom = lignesRetournees.getString("prenom");
-                String pos = lignesRetournees.getString("categorie");
-                Integer id = lignesRetournees.getInt("id_utilisateur");
-                if (idRes == id) {
-                    jLabelErreur.setVisible(true);
-                    jButtonModifPos.setEnabled(false);
-                } else {
-                    jLabelCategorie.setText(pos);
-                    jLabelNom.setText(nom);
-                    jLabelPrenom.setText(prenom);
-                    jLabel2.setText(id.toString());
-                }
+        String selected = jListNonCadre.getSelectedValue();
+        String idUser = selected.substring(0, selected.indexOf(" -"));
+        DefaultListModel leModel = (DefaultListModel) jListCadre.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListNonCadre.getModel();
+        if (selected != null) {
+            try {
+                Connection maConnexion = ConnexionBDD.getInstance();
+                Statement requete = maConnexion.createStatement();
+
+                requete.executeUpdate("update utilisateurs set categorie='cadre' where id_utilisateur = " + idUser);
+
+                leModel.addElement(selected);
+                leModel2.remove(jListNonCadre.getSelectedIndex());
+            } catch (SQLException ex) {
+                Logger.getLogger(PromRetro.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            JOptionPane.showMessageDialog(this, "Veuillez sélectionner un Employé");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonPromActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jButtonRetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetroActionPerformed
+        String selected = jListCadre.getSelectedValue();
+        DefaultListModel leModel = (DefaultListModel) jListNonCadre.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListCadre.getModel();
+        String idUser = selected.substring(0, selected.indexOf(" -")); // recupere la chaine avant " -"
+        if (selected != null) {
+            try {
+                Connection maConnexion = ConnexionBDD.getInstance();
+                Statement requete = maConnexion.createStatement();
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+                requete.executeUpdate("update utilisateurs set categorie='non cadre' where id_utilisateur = " + idUser);
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        jLabelErreur.setVisible(false);
-    }//GEN-LAST:event_formWindowOpened
+                leModel.addElement(selected);
+                leModel2.remove(jListCadre.getSelectedIndex());
+            } catch (SQLException ex) {
+                Logger.getLogger(PromRetro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Veuillez sélectionner un Employé");
+        }
+    }//GEN-LAST:event_jButtonRetroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,18 +320,16 @@ public class ModifRole extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonModifPos;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButtonProm;
+    private javax.swing.JButton jButtonRetro;
+    private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelCategorie;
-    private javax.swing.JLabel jLabelErreur;
-    private javax.swing.JLabel jLabelNom;
-    private javax.swing.JLabel jLabelNom1;
-    private javax.swing.JLabel jLabelPrenom;
-    private javax.swing.JLabel jLabelPrenom1;
-    private javax.swing.JLabel jLabelRole1;
-    private javax.swing.JTextField jTextID;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JList<String> jListCadre;
+    private javax.swing.JList<String> jListNonCadre;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

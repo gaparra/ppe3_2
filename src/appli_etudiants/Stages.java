@@ -218,10 +218,10 @@ public class Stages extends javax.swing.JDialog {
             if (resultat.next()) {
                 Integer idS = resultat.getInt("id_stage");
 
-                System.out.println("update stages set nom='" + "" + "' , description=\""
-                        + jTextAreaDesc.getText() + "\"where id_stage=" + idS);
-                requete.executeUpdate("update stages set nom='" + "" + "' , description=\""
-                        + jTextAreaDesc.getText() + "\"where id_stage=" + idS);
+                System.out.println("update stages set nom='" + item + "' , description=\""
+                        + jTextAreaDesc.getText() + "\"where id_stage=" + idS );
+                requete.executeUpdate("update stages set nom='" + item + "' , description=\""
+                        + jTextAreaDesc.getText() + "\"where id_stage=" + idS );
             }
             jLabel2.setVisible(true);
             jComboBox1.setVisible(true);
@@ -230,7 +230,7 @@ public class Stages extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-                jTextAreaDesc.setEditable(false);
+        jTextAreaDesc.setEditable(false);
     }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -242,7 +242,7 @@ public class Stages extends javax.swing.JDialog {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            System.out.println("select description from stages where id_utilisateur=" + id + " and stage ='" + item);
+            System.out.println("select description from stages where id_utilisateur=" + id + " and stage ='" + item + "'");
             ResultSet resultat = requete.executeQuery("select description from stages where id_utilisateur=" + id + " and nom ='" + item + "'");
             while (resultat.next()) {
                 String description = resultat.getString("description");
@@ -258,7 +258,8 @@ public class Stages extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jButtonValidModif.setVisible(false);
         jComboBox1.setVisible(false);
-                jButtonSuppr.setVisible(false);
+        jButtonSuppr.setVisible(false);
+        jButtonMod.setVisible(false);
 
         jTextField1.setVisible(true);
         jTextAreaDesc.setEditable(true);
@@ -268,26 +269,32 @@ public class Stages extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonValidInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidInsertActionPerformed
-
+        jLabel2.setVisible(false);
         Integer id = gens.getId();
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
             String nouveauStage = jTextField1.getText();
-            System.out.println("INSERT INTO stages (id_stage, nom, description, id_utilisateur) VALUES "
-                    + "(NULL, '" + nouveauStage + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
-            requete.executeUpdate("INSERT INTO stages (id_stage, nom, description, id_utilisateur) VALUES "
-                    + "(NULL, '" + nouveauStage + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
-
-            jLabel2.setVisible(true);
-            jComboBox1.setVisible(true);
-            jTextField1.setVisible(false);
+            if (jTextField1.getText().equals("") || jTextAreaDesc.getText().equals("")) {
+                jLabel2.setText("Veuillez completer tous les champs");
+                jLabel2.setVisible(true);
+            } else {
+                System.out.println("INSERT INTO stages (id_stage, nom, description, id_utilisateur) VALUES "
+                        + "(NULL, '" + nouveauStage + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
+                requete.executeUpdate("INSERT INTO stages (id_stage, nom, description, id_utilisateur) VALUES "
+                        + "(NULL, '" + nouveauStage + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
+                jLabel2.setText("Création réussi");
+                jLabel2.setVisible(true);
+                jComboBox1.setVisible(true);
+                jTextField1.setVisible(false);
+                jTextAreaDesc.setEditable(false);
 //            jLabelConf.setText("Modifications réussis");
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jTextAreaDesc.setEditable(false);
+
     }//GEN-LAST:event_jButtonValidInsertActionPerformed
 
     private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
@@ -301,11 +308,10 @@ public class Stages extends javax.swing.JDialog {
             System.out.println("DELETE FROM stages WHERE stages.nom ='" + nom + "'" + " and stages.description = '" + desc + "'");
             requete.executeUpdate("DELETE FROM stages WHERE stages.nom ='" + nom + "'" + " and stages.description = '" + desc + "'");
 
-            
             DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
             int index = jComboBox1.getSelectedIndex();
             combox.removeElementAt(index);
-jLabel2.setVisible(true);
+            jLabel2.setVisible(true);
             jLabel2.setText("Suppression réussi");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);

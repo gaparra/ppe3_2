@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +37,7 @@ public class PromRetro extends javax.swing.JDialog {
         //on stocke dans this.fenetre la référence vers la fenetre parente
         this.fenetre = (InterfaceGraphique) parent;
         this.gens = gens;
+
     }
 
     /**
@@ -46,174 +49,230 @@ public class PromRetro extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jListResp = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListEmploye = new javax.swing.JList<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButtonProm = new javax.swing.JButton();
+        jButtonRetro = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabelNom = new javax.swing.JLabel();
-        jLabelID = new javax.swing.JLabel();
-        jLabelPrenom = new javax.swing.JLabel();
-        jLabelRole = new javax.swing.JLabel();
-        jLabelConf = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabelNom1 = new javax.swing.JLabel();
-        jLabelID1 = new javax.swing.JLabel();
-        jLabelPrenom1 = new javax.swing.JLabel();
-        jLabelRole1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jTextField1.setToolTipText("");
-        jTextField1.setName(""); // NOI18N
+        jListResp.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jListResp);
+
+        jListEmploye.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jListEmploye);
+
+        jLabel4.setText("Employé");
+
+        jLabel5.setText("Responsable");
+
+        jButtonProm.setText("Promouvoir ->");
+        jButtonProm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPromActionPerformed(evt);
+            }
+        });
+
+        jButtonRetro.setText("Rétrograder <-");
+        jButtonRetro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRetroActionPerformed(evt);
+            }
+        });
+
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Modifier rôle");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSearch.setText("Rechercher");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSearchActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("ID voulu");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Avant");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Maintenant");
+        jLabel1.setText("Chercher un nom");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)
-                                .addGap(32, 32, 32)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(jLabelConf, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonSearch))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(49, 49, 49))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelNom, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelRole, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelID1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelNom1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelPrenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelRole1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                            .addComponent(jButtonRetro)
+                            .addComponent(jButtonProm))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(jButtonSearch))
+                .addGap(18, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addGap(9, 9, 9)
-                .addComponent(jLabelConf, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelNom, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelRole, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelID, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel2)))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPrenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNom1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRole1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelID1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonProm)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButtonRetro)))
+                .addGap(42, 42, 42))
         );
-
-        jTextField1.getAccessibleContext().setAccessibleName("");
 
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DefaultListModel leModel = (DefaultListModel) jListResp.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListEmploye.getModel();
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            ResultSet resultat = requete.executeQuery("select * from utilisateurs where role='responsable'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel.addElement(id + " - " + prenom + "  " + nom);
+            }
+            resultat = requete.executeQuery("select * from utilisateurs where role='employe'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel2.addElement(id + " - " + prenom + "  " + nom);
+            }
+//            jLabelConf.setText("Modifications réussis");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButtonPromActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPromActionPerformed
+
+        String selected = jListEmploye.getSelectedValue();
+        String idUser = selected.substring(0, selected.indexOf(" -"));
+        DefaultListModel leModel = (DefaultListModel) jListResp.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListEmploye.getModel();
+        if (selected != null) {
+            try {
+                Connection maConnexion = ConnexionBDD.getInstance();
+                Statement requete = maConnexion.createStatement();
+
+                requete.executeUpdate("update utilisateurs set role='responsable' where id_utilisateur = " + idUser);
+
+                leModel.addElement(selected);
+                leModel2.remove(jListEmploye.getSelectedIndex());
+            } catch (SQLException ex) {
+                Logger.getLogger(PromRetro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Veuillez sélectionner un Employé");
+        }
+    }//GEN-LAST:event_jButtonPromActionPerformed
+
+    private void jButtonRetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetroActionPerformed
+        String selected = jListResp.getSelectedValue();
+        DefaultListModel leModel = (DefaultListModel) jListEmploye.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListResp.getModel();
+        String idUser = selected.substring(0, selected.indexOf(" -")); // recupere la chaine avant " -"
+        if (selected != null) {
+            try {
+                Connection maConnexion = ConnexionBDD.getInstance();
+                Statement requete = maConnexion.createStatement();
+
+                requete.executeUpdate("update utilisateurs set role='employe' where id_utilisateur = " + idUser);
+
+                leModel.addElement(selected);
+                leModel2.remove(jListResp.getSelectedIndex());
+            } catch (SQLException ex) {
+                Logger.getLogger(PromRetro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Veuillez sélectionner un Responsable");
+        }
+    }//GEN-LAST:event_jButtonRetroActionPerformed
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        DefaultListModel leModel = (DefaultListModel) jListResp.getModel();
+        DefaultListModel leModel2 = (DefaultListModel) jListEmploye.getModel();
+        leModel.removeAllElements();
+        leModel2.removeAllElements();
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
-            //requete
+            //requetes
             Statement requete = maConnexion.createStatement();
-            System.out.println("select * from utilisateurs where id_utilisateur=" + jTextField1.getText());
-            ResultSet lignesRetournees = requete.executeQuery("select * from utilisateurs where id_utilisateur=" + jTextField1.getText());
-            if (lignesRetournees.next()) {
-                String role = lignesRetournees.getString("role");
-                String nom = lignesRetournees.getString("nom");
-                String prenom = lignesRetournees.getString("prenom");
-                if (role.equals("employe")) {
-                    requete.executeUpdate("update utilisateurs set role='responsable' where id_utilisateur=" + jTextField1.getText());
-                } else {
-                    if (role.equals("responsable")) {
-                        requete.executeUpdate("update utilisateurs set role='employe' where id_utilisateur=" + jTextField1.getText());
-                    }
-                }
-                jLabelConf.setText("Modifications réussis");
-                jLabelID.setText("N°"+jTextField1.getText());
-                jLabelNom.setText(nom);
-                jLabelRole.setText(role);
-                jLabelPrenom.setText(prenom);
+            ResultSet resultat = requete.executeQuery("select * from utilisateurs where role='responsable' and nom LIKE '%" + jTextField1.getText() + "%'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel.addElement(id + " - " + prenom + "  " + nom);
             }
-            lignesRetournees = requete.executeQuery("select * from utilisateurs where id_utilisateur=" + jTextField1.getText());
-            if (lignesRetournees.next()) {
-                String role = lignesRetournees.getString("role");
-                String nom = lignesRetournees.getString("nom");
-                String prenom = lignesRetournees.getString("prenom");
-                jLabelID1.setText("N°"+jTextField1.getText());
-                jLabelNom1.setText(nom);
-                jLabelRole1.setText(role);
-                jLabelPrenom1.setText(prenom);
+            resultat = requete.executeQuery("select * from utilisateurs where role='employe' and nom LIKE '%" + jTextField1.getText() + "%'");
+            while (resultat.next()) {
+                Integer id = resultat.getInt("id_utilisateur");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                leModel2.addElement(id + " - " + prenom + "  " + nom);
             }
-
+//            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,19 +317,16 @@ public class PromRetro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonProm;
+    private javax.swing.JButton jButtonRetro;
+    private javax.swing.JButton jButtonSearch;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelConf;
-    private javax.swing.JLabel jLabelID;
-    private javax.swing.JLabel jLabelID1;
-    private javax.swing.JLabel jLabelNom;
-    private javax.swing.JLabel jLabelNom1;
-    private javax.swing.JLabel jLabelPrenom;
-    private javax.swing.JLabel jLabelPrenom1;
-    private javax.swing.JLabel jLabelRole;
-    private javax.swing.JLabel jLabelRole1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JList<String> jListEmploye;
+    private javax.swing.JList<String> jListResp;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

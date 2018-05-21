@@ -435,6 +435,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonFormations.setVisible(false);
         jButtonHobbies.setVisible(false);
         jButtonPermis.setVisible(false);
+        jMenuItem2.setVisible(false);
 
         fileMenu.setText("Connectez-vous");
     }
