@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -33,7 +34,7 @@ public class Personne {
     private String pro;
     private String perso;
 
-    public Personne(Integer id, String nom, String prenom, String courriel, String embauche, String annee_naissance, String adresse, Integer cp,  String ville, String position, String role, String pro, String perso) {
+    public Personne(Integer id, String nom, String prenom, String courriel, String embauche, String annee_naissance, String adresse, Integer cp, String ville, String position, String role, String pro, String perso) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -47,6 +48,35 @@ public class Personne {
         this.role = role;
         this.pro = pro;
         this.perso = perso;
+    }
+
+    public ArrayList<String> recup(String table) {
+        ArrayList<String> maListe = new ArrayList<String>();
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            ResultSet resultat = requete.executeQuery("select * from " + table + " where id_utilisateur=" + id);
+            String desc;
+            String intitule;
+            if (table.equals("langues")) {
+                desc = "niveau";
+                intitule = "langue";
+            } else {
+                desc = "description";
+                intitule = "nom";
+            }
+            while (resultat.next()) {
+                String nomChamp = resultat.getString(desc);
+                String nomIntitule = resultat.getString(intitule);
+                maListe.add(nomIntitule);
+                maListe.add(nomChamp);
+            }
+//            jLabelConf.setText("Modifications réussis");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return maListe;
     }
 
     public Integer getId() {
@@ -72,7 +102,6 @@ public class Personne {
     public void setPerso(String perso) {
         this.perso = perso;
     }
-    
 
     public String voirPos() {
         return getPosition();
@@ -181,6 +210,5 @@ public class Personne {
     public void setCp(Integer cp) {
         this.cp = cp;
     }
-    
-    
+
 }

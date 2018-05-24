@@ -47,79 +47,21 @@ public class Permis extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonSuppr = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDesc = new javax.swing.JTextArea();
         jButtonValidModif = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButtonNew = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButtonMod = new javax.swing.JButton();
         jButtonValidInsert = new javax.swing.JButton();
-        jButtonSuppr = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-        });
-
-        jTextAreaDesc.setEditable(false);
-        jTextAreaDesc.setColumns(20);
-        jTextAreaDesc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextAreaDesc.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaDesc);
-
-        jButtonValidModif.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButtonValidModif.setText("Valider");
-        jButtonValidModif.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValidModifActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Permis");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 204, 0));
-        jLabel2.setText("Modification réussi");
-
-        jComboBox1.setModel(new DefaultComboBoxModel());
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Nouveau permis");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButtonMod.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButtonMod.setText("Modifier");
-        jButtonMod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonModActionPerformed(evt);
-            }
-        });
-
-        jButtonValidInsert.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButtonValidInsert.setText("Valider");
-        jButtonValidInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValidInsertActionPerformed(evt);
             }
         });
 
@@ -132,47 +74,97 @@ public class Permis extends javax.swing.JDialog {
             }
         });
 
+        jTextAreaDesc.setEditable(false);
+        jTextAreaDesc.setColumns(20);
+        jTextAreaDesc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextAreaDesc.setLineWrap(true);
+        jTextAreaDesc.setRows(5);
+        jTextAreaDesc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextAreaDescMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextAreaDesc);
+
+        jButtonValidModif.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonValidModif.setText("Modifier");
+        jButtonValidModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValidModifActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Intitulé");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 204, 0));
+        jLabel2.setText("Modification réussi");
+
+        jComboBox1.setModel(new DefaultComboBoxModel());
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jButtonNew.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonNew.setText("Ajouter un permis");
+        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewActionPerformed(evt);
+            }
+        });
+
+        jButtonValidInsert.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonValidInsert.setText("Valider");
+        jButtonValidInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValidInsertActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonValidModif, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel2))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButtonMod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField1)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButtonValidModif, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30))
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jButtonMod)
-                .addGap(17, 17, 17)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButtonNew)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -180,7 +172,7 @@ public class Permis extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonValidModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValidInsert)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -192,36 +184,108 @@ public class Permis extends javax.swing.JDialog {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Integer id = gens.getId();
         jLabel2.setVisible(false);
+//        jLabel3.setVisible(false);
         jTextField1.setVisible(false);
         jButtonValidInsert.setVisible(false);
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-//            System.out.println("update utilisateurs set tel_personnel=" + perso + " and tel_professionnel = " + pro + " where id_utilisateur=" + id);
-//            System.out.println("update adresse set code_postal=" + cp + " , rue = " + rue + " , ville =" + ville + " where id_utilisateur=" + id);
             ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id);
             while (resultat.next()) {
                 String nom = resultat.getString("nom");
                 jComboBox1.addItem(nom);
+
             }
 //            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if (jComboBox1.getItemCount() == 0) {
+            jTextAreaDesc.setText("");
+            jTextAreaDesc.setVisible(false);
+            jButtonValidModif.setEnabled(false);
+            jButtonSuppr.setEnabled(false);
+        }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
+        String nom = jComboBox1.getSelectedItem().toString();
+        String desc = jTextAreaDesc.getText();
+
+        if (jComboBox1.getItemCount() == 1) {
+            jButtonSuppr.setEnabled(false);
+            jButtonValidModif.setEnabled(false);
+            jTextAreaDesc.setText("**Aucun permis enregistré**");
+            jComboBox1.setEnabled(false);
+            jComboBox1.remove(1);
+
+        }
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            System.out.println("DELETE FROM permis WHERE permis.nom ='" + nom + "'" + " and permis.description = '" + desc + "'");
+            requete.executeUpdate("DELETE FROM permis WHERE permis.nom =\"" + nom + "\"" + " and permis.description = \"" + desc + "\"");
+
+            //            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
+            //            int index = jComboBox1.getSelectedIndex();
+            //            combox.removeElementAt(index);
+            jComboBox1.removeItem(nom);
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButtonSupprActionPerformed
+
+    private void jTextAreaDescMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextAreaDescMouseClicked
+        // TODO add your handling code here:
+        if (jComboBox1.getItemCount() != 0) {
+            jTextAreaDesc.setEditable(true);
+        }
+    }//GEN-LAST:event_jTextAreaDescMouseClicked
+
+    private void jButtonValidModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidModifActionPerformed
+        jComboBox1.setEditable(false);
+        Integer id = gens.getId();
+        String item = jComboBox1.getSelectedItem().toString();
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
+            if (resultat.next()) {
+                Integer idS = resultat.getInt("id_permis");
+
+                System.out.println("update permis set nom='" + item + "' , description=\""
+                        + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
+                requete.executeUpdate("update permis set nom='" + item + "' , description=\""
+                        + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
+            }
+            jLabel2.setVisible(true);
+            jComboBox1.setVisible(true);
+            jTextField1.setVisible(false);
+            jLabel2.setText("Modifications réussis");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTextAreaDesc.setEditable(false);
+    }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         Integer id = gens.getId();
         jLabel2.setVisible(false);
 
         String item = jComboBox1.getSelectedItem().toString();
+
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            System.out.println("select description from permis where id_utilisateur=" + id + " and nom ='" + item);
-            ResultSet resultat = requete.executeQuery("select description from permis where id_utilisateur=" + id + " and nom ='" + item + "'");
+            System.out.println("select description from permis where id_utilisateur=" + id + " and permis ='" + item + "'");
+            ResultSet resultat = requete.executeQuery("select description from permis where id_utilisateur=" + id + " and nom =\"" + item + "\"");
             while (resultat.next()) {
                 String description = resultat.getString("description");
 
@@ -230,98 +294,78 @@ public class Permis extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jButtonSuppr.setVisible(false);
-
+    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
         jButtonValidModif.setVisible(false);
         jComboBox1.setVisible(false);
+        jButtonSuppr.setVisible(false);
+        jLabel2.setVisible(false);
+
         jTextField1.setVisible(true);
         jTextAreaDesc.setEditable(true);
+        jTextAreaDesc.setVisible(true);
         jButtonValidInsert.setVisible(true);
-        jTextAreaDesc.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButtonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModActionPerformed
-        jTextAreaDesc.setEditable(true);
-        //        jTextFieldNom.setEditable(true);
-    }//GEN-LAST:event_jButtonModActionPerformed
+        jTextAreaDesc.setText("");
+        jTextField1.setText("");
+    }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void jButtonValidInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidInsertActionPerformed
+        jLabel2.setVisible(false);
         Integer id = gens.getId();
+        Integer test = 0;
+        //        jComboBox1.removeAllItems();
+        String nouveauPermis = jTextField1.getText();
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            String nouveauPermis = jTextField1.getText();
-            System.out.println("INSERT INTO permis (id_permis, nom, description, id_utilisateur) VALUES "
-                    + "(NULL, '" + nouveauPermis + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
-            requete.executeUpdate("INSERT INTO permis (id_permis, nom, description, id_utilisateur) VALUES "
-                    + "(NULL, '" + nouveauPermis + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
 
-            jLabel2.setVisible(true);
-            jComboBox1.setVisible(true);
-            jTextField1.setVisible(false);
-            //            jLabelConf.setText("Modifications réussis");
-        } catch (SQLException ex) {
-            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jTextAreaDesc.setEditable(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonValidInsertActionPerformed
+            if (jTextField1.getText().equals("") || jTextAreaDesc.getText().equals("")) {
+                jLabel2.setText("Veuillez compléter tous les champs");
+                jLabel2.setVisible(true);
+            } else {
+                try {
+                    System.out.println("select * from permis where id_utilisateur=" + id + " and nom ='" + jTextField1.getText() + "'");
+                    ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id + " and nom ='" + jTextField1.getText() + "'");
+                    if (resultat.next()) {
+                        jLabel2.setText("Vous avez déjà ce permis");
+                        jLabel2.setVisible(true);
+                        test = 1;
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (test == 0) {
+                    System.out.println("INSERT INTO permis (id_permis, nom, description, id_utilisateur) VALUES "
+                            + "(NULL, '" + nouveauPermis + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
 
-    private void jButtonValidModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidModifActionPerformed
-        Integer id = gens.getId();
-        String item = jComboBox1.getSelectedItem().toString();
-        try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requetes
-            Statement requete = maConnexion.createStatement();
-            System.out.println("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
-            ResultSet resultat = requete.executeQuery("select * from permis where id_utilisateur=" + id + " and nom='" + item + "'");
-            if (resultat.next()) {
-                Integer idS = resultat.getInt("id_permis");
-
-                System.out.println("update permis set nom='" + item + "' , description=\""
-                    + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
-                requete.executeUpdate("update permis set nom='" + item + "' , description=\""
-                    + jTextAreaDesc.getText() + "\"where id_permis=" + idS);
+                    requete.executeUpdate("INSERT INTO permis (id_permis, nom, description, id_utilisateur) VALUES "
+                            + "(NULL, \"" + nouveauPermis + "\", \"" + jTextAreaDesc.getText() + "\", \"" + id + "\");");
+                    jLabel2.setText("Création réussi");
+                    jLabel2.setVisible(true);
+                    jComboBox1.setVisible(true);
+                    jComboBox1.setEnabled(true);
+                    jTextField1.setVisible(false);
+                    jButtonSuppr.setVisible(true);
+                    jButtonSuppr.setEnabled(true);
+                    jTextAreaDesc.setVisible(true);
+                    jButtonValidModif.setVisible(true);
+                    jButtonValidModif.setEnabled(true);
+                    jButtonValidInsert.setVisible(false);
+                    jTextAreaDesc.setEditable(false);
+                    jComboBox1.addItem(nouveauPermis);
+                }
             }
-            jLabel2.setVisible(true);
-            jComboBox1.setVisible(true);
-            jTextField1.setVisible(false);
-            //            jLabelConf.setText("Modifications réussis");
-        } catch (SQLException ex) {
-            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }        jTextAreaDesc.setEditable(false);
-
-    }//GEN-LAST:event_jButtonValidModifActionPerformed
-
-    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
-        String nom = jComboBox1.getSelectedItem().toString();
-        String desc = jTextAreaDesc.getText();
-
-        try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requetes
-            Statement requete = maConnexion.createStatement();
-            System.out.println("DELETE FROM permis WHERE permis.nom ='" + nom + "'" + " and permis.description = '" + desc + "'");
-            requete.executeUpdate("DELETE FROM permis WHERE permis.nom ='" + nom + "'" + " and permis.description = '" + desc + "'");
-
-            
-            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
-            int index = jComboBox1.getSelectedIndex();
-            combox.removeElementAt(index);
-jLabel2.setVisible(true);
-            jLabel2.setText("Suppression réussi");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonSupprActionPerformed
+        //        jComboBox1.remove(1);
+
+    }//GEN-LAST:event_jButtonValidInsertActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,8 +410,7 @@ jLabel2.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonMod;
+    private javax.swing.JButton jButtonNew;
     private javax.swing.JButton jButtonSuppr;
     private javax.swing.JButton jButtonValidInsert;
     private javax.swing.JButton jButtonValidModif;

@@ -5,11 +5,14 @@
 package appli_etudiants;
 
 import com.mysql.jdbc.Connection;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -75,6 +78,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonFormations = new javax.swing.JButton();
         jButtonHobbies = new javax.swing.JButton();
         jButtonPermis = new javax.swing.JButton();
+        jButtonPDF = new javax.swing.JButton();
         nomMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         connexionMenuItem = new javax.swing.JMenuItem();
@@ -151,6 +155,13 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
 
+        jButtonPDF.setText("Générer un PDF");
+        jButtonPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPDFActionPerformed(evt);
+            }
+        });
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("Connexion");
 
@@ -213,21 +224,25 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(33, 33, 33)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonHobbies, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonInfo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonLangues, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonFormations, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonStage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .add(jButtonPermis, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jButtonPDF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(jButtonModifRole, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonHobbies, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonCreEmP, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonInfo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonLangues, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonFormations, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonStage, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                        .add(jButtonPermis, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .add(25, 25, 25)
+                .addContainerGap(23, Short.MAX_VALUE)
+                .add(jButtonPDF)
+                .add(19, 19, 19)
                 .add(jButtonInfo)
                 .add(18, 18, 18)
                 .add(jButtonStage)
@@ -243,7 +258,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(jButtonModifRole)
                 .add(18, 18, 18)
                 .add(jButtonCreEmP)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(26, 26, 26))
         );
 
         pack();
@@ -373,6 +388,28 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         this.fenModifMDP.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButtonPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPDFActionPerformed
+        String chemin = "";
+        chemin = JOptionPane.showInputDialog(null, "Indiquez le chemin de destination du pdf");
+        if (chemin == null) {
+        } else {
+            ArrayList<String> stages = gens.recup("stages");
+            ArrayList<String> hobbies = gens.recup("hobbies");
+            ArrayList<String> formations = gens.recup("formations");
+            ArrayList<String> langues = gens.recup("langues");
+            ArrayList<String> permis = gens.recup("permis");
+
+            try {
+                PDF.creaPDF(stages, hobbies, formations, langues, permis, gens.getNom(), gens.getPrenom(), gens.getAnnee_naissance(), chemin, 
+                        gens.getPerso(),gens.getAdresse(),gens.getVille(), gens.getCp(), gens.getCourriel());
+            } catch (IOException ex) {
+                Logger.getLogger(InterfaceGraphique.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+
+    }//GEN-LAST:event_jButtonPDFActionPerformed
     public void connecte(String nom, String prenom, String role) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -382,6 +419,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
 
         if (role.equals("directeur")) {
             jButtonModifRole.setText("Modifier Rôle");
+            jButtonPDF.setVisible(true);
             jButtonInfo.setVisible(true);
             jButtonCreEmP.setVisible(true);
             jButtonModifRole.setVisible(true);
@@ -391,25 +429,27 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonHobbies.setVisible(true);
             jButtonPermis.setVisible(true);
 
-            setSize(300, 430);
+            setSize(300, 465);
             fileMenu.setText("Directeur");
         } else if (role.equals("responsable")) {
             jButtonModifRole.setText("Modifier Position");
             jButtonCreEmP.setVisible(false);
             jButtonModifRole.setVisible(true);
+            jButtonPDF.setVisible(true);
             jButtonInfo.setVisible(true);
             jButtonStage.setVisible(true);
             jButtonLangues.setVisible(true);
             jButtonFormations.setVisible(true);
             jButtonHobbies.setVisible(true);
             jButtonPermis.setVisible(true);
-            setSize(300, 380);
+            setSize(300, 420);
             fileMenu.setText("Responsable");
 
         } else {
             fileMenu.setText("Employé");
             jButtonCreEmP.setVisible(false);
             jButtonModifRole.setVisible(false);
+            jButtonPDF.setVisible(true);
             jButtonInfo.setVisible(true);
             jButtonStage.setVisible(true);
             jButtonLangues.setVisible(true);
@@ -418,7 +458,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             jButtonPermis.setVisible(true);
 
 //            jButtonInfo.setSize(350, 50);
-            setSize(300, 350);
+            setSize(285, 380);
 
         }
 
@@ -435,6 +475,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
         jButtonFormations.setVisible(false);
         jButtonHobbies.setVisible(false);
         jButtonPermis.setVisible(false);
+        jButtonPDF.setVisible(false);
         jMenuItem2.setVisible(false);
 
         fileMenu.setText("Connectez-vous");
@@ -492,8 +533,12 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JButton jButtonLangues;
     private javax.swing.JButton jButtonModifRole;
+    private javax.swing.JButton jButtonPDF;
     private javax.swing.JButton jButtonPermis;
     private javax.swing.JButton jButtonStage;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar nomMenuBar;

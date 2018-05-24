@@ -45,79 +45,21 @@ public class Langues extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonMod = new javax.swing.JButton();
+        jButtonSuppr = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDesc = new javax.swing.JTextArea();
         jButtonValidModif = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButtonValidInsert = new javax.swing.JButton();
+        jButtonNew = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButtonSuppr = new javax.swing.JButton();
+        jButtonValidInsert = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-        });
-
-        jButtonMod.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButtonMod.setText("Modifier");
-        jButtonMod.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonModActionPerformed(evt);
-            }
-        });
-
-        jTextAreaDesc.setEditable(false);
-        jTextAreaDesc.setColumns(20);
-        jTextAreaDesc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextAreaDesc.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaDesc);
-
-        jButtonValidModif.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButtonValidModif.setText("Valider");
-        jButtonValidModif.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValidModifActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Langue");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 204, 0));
-        jLabel2.setText("Modification réussi");
-
-        jComboBox1.setModel(new DefaultComboBoxModel());
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jButtonValidInsert.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButtonValidInsert.setText("Valider");
-        jButtonValidInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonValidInsertActionPerformed(evt);
-            }
-        });
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Nouvelle langue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -130,48 +72,97 @@ public class Langues extends javax.swing.JDialog {
             }
         });
 
+        jTextAreaDesc.setEditable(false);
+        jTextAreaDesc.setColumns(20);
+        jTextAreaDesc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextAreaDesc.setLineWrap(true);
+        jTextAreaDesc.setRows(5);
+        jTextAreaDesc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextAreaDescMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTextAreaDesc);
+
+        jButtonValidModif.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonValidModif.setText("Modifier");
+        jButtonValidModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValidModifActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Intitulé");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 204, 0));
+        jLabel2.setText("Modification réussi");
+
+        jComboBox1.setModel(new DefaultComboBoxModel());
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jButtonNew.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonNew.setText("Ajouter une langue");
+        jButtonNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewActionPerformed(evt);
+            }
+        });
+
+        jButtonValidInsert.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonValidInsert.setText("Valider");
+        jButtonValidInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValidInsertActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonValidModif, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel2))
-                            .addComponent(jButtonMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonValidModif, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30))))
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel2)))
+                        .addGap(0, 2, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButtonNew)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonMod)
-                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -179,50 +170,19 @@ public class Langues extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonValidModif, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonSuppr, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValidInsert)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModActionPerformed
-        jTextAreaDesc.setEditable(true);
-//        jTextFieldNom.setEditable(true);
-    }//GEN-LAST:event_jButtonModActionPerformed
-
-    private void jButtonValidModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidModifActionPerformed
-        Integer id = gens.getId();
-        String item = jComboBox1.getSelectedItem().toString();
-        try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requetes
-            Statement requete = maConnexion.createStatement();
-            System.out.println("select * from langues where id_utilisateur=" + id + " and langue='" + item + "'");
-            ResultSet resultat = requete.executeQuery("select * from langues where id_utilisateur=" + id + " and langue='" + item + "'");
-            if (resultat.next()) {
-                Integer idS = resultat.getInt("id_langue");
-
-                System.out.println("update langues set langue='" + item + "' , niveau=\""
-                        + jTextAreaDesc.getText() + "\"where id_langue=" + idS);
-                requete.executeUpdate("update langues set langue='" + item + "' , niveau=\""
-                        + jTextAreaDesc.getText() + "\"where id_langue=" + idS);
-            }
-            jLabel2.setVisible(true);
-            jComboBox1.setVisible(true);
-            jTextField1.setVisible(false);
-//            jLabelConf.setText("Modifications réussis");
-        } catch (SQLException ex) {
-            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jTextAreaDesc.setEditable(false);
-    }//GEN-LAST:event_jButtonValidModifActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        Integer id = gens.getId();
+             Integer id = gens.getId();
         jLabel2.setVisible(false);
+//        jLabel3.setVisible(false);
         jTextField1.setVisible(false);
         jButtonValidInsert.setVisible(false);
         try {
@@ -233,47 +193,96 @@ public class Langues extends javax.swing.JDialog {
             while (resultat.next()) {
                 String langue = resultat.getString("langue");
                 jComboBox1.addItem(langue);
+
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jButtonValidInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidInsertActionPerformed
-        Integer id = gens.getId();
-        try {
-            Connection maConnexion = ConnexionBDD.getInstance();
-            //requetes
-            Statement requete = maConnexion.createStatement();
-            String nouvelleLangue = jTextField1.getText();
-            System.out.println("INSERT INTO langues (id_langue, langue, niveau, id_utilisateur) VALUES "
-                    + "(NULL, '" + nouvelleLangue + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
-            requete.executeUpdate("INSERT INTO langues (id_langue, langue, niveau, id_utilisateur) VALUES "
-                    + "(NULL, '" + nouvelleLangue + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
-
-            jLabel2.setVisible(true);
-            jLabel2.setText("Création réussi");
-            jComboBox1.setVisible(true);
-            jTextField1.setVisible(false);
 //            jLabelConf.setText("Modifications réussis");
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jTextAreaDesc.setEditable(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonValidInsertActionPerformed
+        if (jComboBox1.getItemCount() == 0) {
+            jTextAreaDesc.setText("");
+            jTextAreaDesc.setVisible(false);
+            jButtonValidModif.setEnabled(false);
+            jButtonSuppr.setEnabled(false);
+        }   
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
+        String langue = jComboBox1.getSelectedItem().toString();
+        String desc = jTextAreaDesc.getText();
+
+        if (jComboBox1.getItemCount() == 1) {
+            jButtonSuppr.setEnabled(false);
+            jButtonValidModif.setEnabled(false);
+            jTextAreaDesc.setText("**Aucune langue enregistrée**");
+            jComboBox1.setEnabled(false);
+            jComboBox1.remove(1);
+
+        }
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            System.out.println("DELETE FROM langues WHERE langues.langue ='" + langue + "'" + " and langues.niveau = '" + desc + "'");
+            requete.executeUpdate("DELETE FROM langues WHERE langues.langue =\"" + langue + "\"" + " and langues.niveau = \"" + desc + "\"");
+
+            //            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
+            //            int index = jComboBox1.getSelectedIndex();
+            //            combox.removeElementAt(index);
+            jComboBox1.removeItem(langue);
+            jLabel2.setVisible(true);
+            jLabel2.setText("Suppression réussi");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonSupprActionPerformed
+
+    private void jTextAreaDescMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextAreaDescMouseClicked
+        // TODO add your handling code here:
+        if (jComboBox1.getItemCount() != 0) {
+            jTextAreaDesc.setEditable(true);
+        }
+    }//GEN-LAST:event_jTextAreaDescMouseClicked
+
+    private void jButtonValidModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidModifActionPerformed
+        jComboBox1.setEditable(false);
+        Integer id = gens.getId();
+        String item = jComboBox1.getSelectedItem().toString();
+        try {
+            Connection maConnexion = ConnexionBDD.getInstance();
+            //requetes
+            Statement requete = maConnexion.createStatement();
+            ResultSet resultat = requete.executeQuery("select * from langues where id_utilisateur=" + id + " and langue='" + item + "'");
+            if (resultat.next()) {
+                Integer idS = resultat.getInt("id_langue");
+
+                System.out.println("update langues set langue='" + item + "' , niveau=\""
+                    + jTextAreaDesc.getText() + "\"where id_langue=" + idS);
+                requete.executeUpdate("update langues set langue='" + item + "' , niveau=\""
+                    + jTextAreaDesc.getText() + "\"where id_langue=" + idS);
+            }
+            jLabel2.setVisible(true);
+            jComboBox1.setVisible(true);
+            jTextField1.setVisible(false);
+            jLabel2.setText("Modifications réussis");
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTextAreaDesc.setEditable(false);
+    }//GEN-LAST:event_jButtonValidModifActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         Integer id = gens.getId();
         jLabel2.setVisible(false);
 
         String item = jComboBox1.getSelectedItem().toString();
+
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            System.out.println("select niveau from langues where id_utilisateur=" + id + " and langue ='" + item);
-            ResultSet resultat = requete.executeQuery("select niveau from langues where id_utilisateur=" + id + " and langue ='" + item + "'");
+            System.out.println("select niveau from langues where id_utilisateur=" + id + " and langue ='" + item + "'");
+            ResultSet resultat = requete.executeQuery("select niveau from langues where id_utilisateur=" + id + " and langue =\"" + item + "\"");
             while (resultat.next()) {
                 String niveau = resultat.getString("niveau");
 
@@ -282,43 +291,77 @@ public class Langues extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void jButtonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewActionPerformed
         jButtonValidModif.setVisible(false);
         jComboBox1.setVisible(false);
         jButtonSuppr.setVisible(false);
+        jLabel2.setVisible(false);
+
         jTextField1.setVisible(true);
         jTextAreaDesc.setEditable(true);
+        jTextAreaDesc.setVisible(true);
         jButtonValidInsert.setVisible(true);
+
         jTextAreaDesc.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jTextField1.setText("");
+    }//GEN-LAST:event_jButtonNewActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButtonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSupprActionPerformed
-        String nom = jComboBox1.getSelectedItem().toString();
-        String desc = jTextAreaDesc.getText();
-
+    private void jButtonValidInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidInsertActionPerformed
+        jLabel2.setVisible(false);
+        Integer id = gens.getId();
+        Integer test = 0;
+        //        jComboBox1.removeAllItems();
+        String nouveauStage = jTextField1.getText();
         try {
             Connection maConnexion = ConnexionBDD.getInstance();
             //requetes
             Statement requete = maConnexion.createStatement();
-            System.out.println("DELETE FROM langues WHERE langues.langue ='" + nom + "'" + " and langues.niveau = '" + desc + "'");
-            requete.executeUpdate("DELETE FROM langues WHERE langues.langue ='" + nom + "'" + " and langues.niveau = '" + desc + "'");
 
-            DefaultComboBoxModel combox = (DefaultComboBoxModel) jComboBox1.getModel();
-            int index = jComboBox1.getSelectedIndex();
-            combox.removeElementAt(index);
-            jLabel2.setVisible(true);
-            jLabel2.setText("Suppression réussi");
+            if (jTextField1.getText().equals("") || jTextAreaDesc.getText().equals("")) {
+                jLabel2.setText("Veuillez completer tous les champs");
+                jLabel2.setVisible(true);
+            } else {
+                try {
+                    System.out.println("select * from langues where id_utilisateur=" + id + " and langue ='" + jTextField1.getText() + "'");
+                    ResultSet resultat = requete.executeQuery("select * from langues where id_utilisateur=" + id + " and langue ='" + jTextField1.getText() + "'");
+                    if (resultat.next()) {
+                        jLabel2.setText("Vous connaissez déjà cette langue");
+                        jLabel2.setVisible(true);
+                        test = 1;
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if (test == 0) {
+                    System.out.println("INSERT INTO langues (id_langue, langue, niveau, id_utilisateur) VALUES "
+                        + "(NULL, '" + nouveauStage + "', '" + jTextAreaDesc.getText() + "', '" + id + "');");
+
+                    requete.executeUpdate("INSERT INTO langues (id_langue, langue, niveau, id_utilisateur) VALUES "
+                        + "(NULL, \"" + nouveauStage + "\", \"" + jTextAreaDesc.getText() + "\", \"" + id + "\");");
+                    jLabel2.setText("Création réussi");
+                    jLabel2.setVisible(true);
+                    jComboBox1.setVisible(true);
+                    jComboBox1.setEnabled(true);
+                    jTextField1.setVisible(false);
+                    jButtonSuppr.setVisible(true);
+                    jButtonSuppr.setEnabled(true);
+                    jTextAreaDesc.setVisible(true);
+                    jButtonValidModif.setVisible(true);
+                    jButtonValidModif.setEnabled(true);
+                    jButtonValidInsert.setVisible(false);
+                    jTextAreaDesc.setEditable(false);
+                    jComboBox1.addItem(nouveauStage);
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSupprActionPerformed
+        }
+        //        jComboBox1.remove(1);
+    }//GEN-LAST:event_jButtonValidInsertActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,8 +406,7 @@ public class Langues extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonMod;
+    private javax.swing.JButton jButtonNew;
     private javax.swing.JButton jButtonSuppr;
     private javax.swing.JButton jButtonValidInsert;
     private javax.swing.JButton jButtonValidModif;

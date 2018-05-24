@@ -55,7 +55,6 @@ public class Stages extends javax.swing.JDialog {
         jTextField1 = new javax.swing.JTextField();
         jButtonValidInsert = new javax.swing.JButton();
         jButtonSuppr = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stage");
@@ -69,6 +68,7 @@ public class Stages extends javax.swing.JDialog {
         jTextAreaDesc.setEditable(false);
         jTextAreaDesc.setColumns(20);
         jTextAreaDesc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextAreaDesc.setLineWrap(true);
         jTextAreaDesc.setRows(5);
         jTextAreaDesc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,8 +123,6 @@ public class Stages extends javax.swing.JDialog {
             }
         });
 
-        jLabel3.setText("jLabel3");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,12 +151,8 @@ public class Stages extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButtonNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(15, 15, 15)))))
+                            .addComponent(jButtonNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonValidInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -181,9 +175,7 @@ public class Stages extends javax.swing.JDialog {
                     .addComponent(jButtonSuppr, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonValidInsert)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(22, 22, 22))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,6 +205,7 @@ public class Stages extends javax.swing.JDialog {
             jTextAreaDesc.setText("");
             jTextAreaDesc.setVisible(false);
             jButtonValidModif.setEnabled(false);
+            jButtonSuppr.setEnabled(false);
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -365,8 +358,7 @@ public class Stages extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String nb = String.valueOf(jComboBox1.getItemCount());
-        jLabel3.setText(nom);
+
 
 
     }//GEN-LAST:event_jButtonSupprActionPerformed
@@ -432,7 +424,6 @@ public class Stages extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDesc;
     private javax.swing.JTextField jTextField1;

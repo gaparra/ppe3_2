@@ -7,10 +7,12 @@ package appli_etudiants;
 
 import com.mysql.jdbc.Connection;
 import java.awt.Color;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -68,11 +70,11 @@ public class CreationEmp extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldIdentifiant = new javax.swing.JTextField();
-        jTextFieldMDP = new javax.swing.JTextField();
         jButtonCreer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabelTitre = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<String>();
+        jTextFieldMDP = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -113,7 +115,7 @@ public class CreationEmp extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Test creation");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -123,7 +125,7 @@ public class CreationEmp extends javax.swing.JDialog {
         jLabelTitre.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabelTitre.setText("Création d'un employé");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "cadre", "non cadre", "dirigeant"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "cadre", "non cadre"}));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -135,9 +137,9 @@ public class CreationEmp extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,16 +166,15 @@ public class CreationEmp extends javax.swing.JDialog {
                             .addComponent(jLabel12))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldMDP, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                             .addComponent(jTextFieldPerso)
                             .addComponent(jTextFieldPro)
                             .addComponent(jTextFieldNais)
                             .addComponent(jTextFieldCP)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jComboBox1, 0, 138, Short.MAX_VALUE)
+                            .addComponent(jTextFieldMDP)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
                         .addComponent(jButton1)
-                        .addGap(100, 100, 100)
+                        .addGap(111, 111, 111)
                         .addComponent(jButtonCreer, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -221,14 +222,16 @@ public class CreationEmp extends javax.swing.JDialog {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldIdentifiant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldMDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(jTextFieldMDP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCreer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addComponent(jButtonCreer, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -250,31 +253,35 @@ public class CreationEmp extends javax.swing.JDialog {
                 Connection maConnexion = ConnexionBDD.getInstance();
                 //requete
                 Statement requete = maConnexion.createStatement();
-//            System.out.println("update utilisateurs set tel_personnel=" + perso + " and tel_professionnel = " + pro + " where id_utilisateur=" + id);
-                System.out.println("INSERT INTO utilisateurs"
-                        + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
-                        + "role, categorie, identifiant, mot_de_passe) "
-                        + "VALUES (NULL, '" + jTextFieldNom.getText() + "', '" + jTextFieldPrenom.getText()
-                        + "', '" + jTextFieldNais.getText() + "', '" + jTextFieldPerso.getText() + "', '" + jTextFieldPro.getText()
-                        + "', '" + jTextFieldMail.getText() + "', NULL, year(now()), 'employe', '" + jComboBox1.getSelectedItem()
-                        + "', '" + jTextFieldIdentifiant.getText() + "', '" + jTextFieldMDP.getText() + "');");
+                ResultSet resultat = requete.executeQuery("select * from utilisateurs where identifiant= \"" + jTextFieldIdentifiant.getText() + "\"");
+                if (resultat.next()) {
+                    JOptionPane.showMessageDialog(null, "Cet identifiant est déjà utilisé", "Erreur", JOptionPane.ERROR_MESSAGE);
+                } else {
 
-                requete.executeUpdate("INSERT INTO utilisateurs"
-                        + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
-                        + "role, categorie, identifiant, mot_de_passe) "
-                        + "VALUES (NULL, \"" + jTextFieldNom.getText() + "\", \"" + jTextFieldPrenom.getText()
-                        + "\", \"" + jTextFieldNais.getText() + "\", \"" + jTextFieldPerso.getText() + "\", \"" + jTextFieldPro.getText()
-                        + "\", \"" + jTextFieldMail.getText() + "\", NULL, year(now()), 'employe', \"" + jComboBox1.getSelectedItem()
-                        + "\", \"" + jTextFieldIdentifiant.getText() + "\", MD5('" + jTextFieldMDP.getText() + "'));");
-                System.out.println("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
-                        + "VALUES (NULL, " + jTextFieldCP.getText() + "', '" + jTextFieldVille.getText() + "', '" + jTextFieldRue.getText()
-                        + "', LAST_INSERT_ID()');");
-                requete.executeUpdate("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur,numero_adresse) "
-                        + "VALUES (NULL, " + jTextFieldCP.getText() + ", \"" + jTextFieldVille.getText() + "\", \"" + jTextFieldRue.getText()
-                        + "\", LAST_INSERT_ID(),1);");
-                jLabelTitre.setText("Création réussi");
-                jLabelTitre.setForeground(Color.green);
+                    System.out.println("INSERT INTO utilisateurs"
+                            + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
+                            + "role, categorie, identifiant, mot_de_passe) "
+                            + "VALUES (NULL, '" + jTextFieldNom.getText() + "', '" + jTextFieldPrenom.getText()
+                            + "', '" + jTextFieldNais.getText() + "', '" + jTextFieldPerso.getText() + "', '" + jTextFieldPro.getText()
+                            + "', '" + jTextFieldMail.getText() + "', NULL, year(now()), 'employe', '" + jComboBox1.getSelectedItem()
+                            + "', '" + jTextFieldIdentifiant.getText() + "', '" + jTextFieldMDP.getText() + "');");
 
+                    requete.executeUpdate("INSERT INTO utilisateurs"
+                            + " (id_utilisateur, nom, prenom, annee_naissance, tel_personnel, tel_professionnel, mail, site_web, date_embauche, "
+                            + "role, categorie, identifiant, mot_de_passe) "
+                            + "VALUES (NULL, \"" + jTextFieldNom.getText() + "\", \"" + jTextFieldPrenom.getText()
+                            + "\", \"" + jTextFieldNais.getText() + "\", \"" + jTextFieldPerso.getText() + "\", \"" + jTextFieldPro.getText()
+                            + "\", \"" + jTextFieldMail.getText() + "\", NULL, year(now()), 'employe', \"" + jComboBox1.getSelectedItem()
+                            + "\", \"" + jTextFieldIdentifiant.getText() + "\", MD5('" + jTextFieldMDP.getText() + "'));");
+                    System.out.println("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur) "
+                            + "VALUES (NULL, " + jTextFieldCP.getText() + "', '" + jTextFieldVille.getText() + "', '" + jTextFieldRue.getText()
+                            + "', LAST_INSERT_ID()');");
+                    requete.executeUpdate("INSERT INTO adresse (id, code_postal, ville, rue, id_utilisateur,numero_adresse) "
+                            + "VALUES (NULL, " + jTextFieldCP.getText() + ", \"" + jTextFieldVille.getText() + "\", \"" + jTextFieldRue.getText()
+                            + "\", LAST_INSERT_ID(),1);");
+                    jLabelTitre.setText("Création réussi");
+                    jLabelTitre.setForeground(Color.green);
+                }
             } catch (SQLException ex) {
                 Logger.getLogger(ModifRole.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -283,8 +290,17 @@ public class CreationEmp extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        System.out.println("22222222");
-        // TODO add your handling code here:
+        jTextFieldCP.setText("66000");
+        jTextFieldIdentifiant.setText("test");
+        jTextFieldMDP.setText("test");
+        jTextFieldMail.setText("test@gmail.com");
+        jTextFieldNais.setText("1997");
+        jTextFieldNom.setText("Legrand");
+        jTextFieldPerso.setText("0612345789");
+        jTextFieldPrenom.setText("Michel");
+        jTextFieldPro.setText("0798654321");
+        jTextFieldRue.setText("12 Rue du bouc");
+        jTextFieldVille.setText("Perpignan");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -352,7 +368,7 @@ public class CreationEmp extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelTitre;
     private javax.swing.JTextField jTextFieldCP;
     private javax.swing.JTextField jTextFieldIdentifiant;
-    private javax.swing.JTextField jTextFieldMDP;
+    private javax.swing.JPasswordField jTextFieldMDP;
     private javax.swing.JTextField jTextFieldMail;
     private javax.swing.JTextField jTextFieldNais;
     private javax.swing.JTextField jTextFieldNom;
